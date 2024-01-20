@@ -53,8 +53,16 @@ function Home(){
       </div>
 
       <div className='popular-collection my-[70px]'>
-        <div className='font-bold text-xl text-center'>POPULAR COLLECTION</div>
+        <div className='font-bold text-[20px] text-center mb-9'>POPULAR COLLECTION</div>
         <Popular/>       
+      </div>
+
+      <div className='discount h-[50vh]'>
+        <p className='font-bold'>
+          50% OFF SALE<br/>
+          END OF SEASON
+        </p>
+        
       </div>
     </div>
   )

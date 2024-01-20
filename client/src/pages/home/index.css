@@ -18,3 +18,8 @@
     background-image: url('../../assets/images/home/women.jpg');
     background-size: cover;
 }
+
+.discount{
+    background-image: url('../../assets/images/home/discount.jpg');
+    background-size: cover;
+}
