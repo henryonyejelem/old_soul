@@ -1,9 +1,10 @@
-import React from 'react'
+import buttonArrow from '../../assets/icons/buttonArrow.svg'
 
 function Button(props) {
   return (
-    <div className='w-[100%] text-right'>
-        {props.children}       
+    <div className='w-[100%] flex gap-2 justify-end'>
+        {props.children}  
+        <img src={buttonArrow} alt="" className='stroke-2'/>             
     </div>
   )
 }

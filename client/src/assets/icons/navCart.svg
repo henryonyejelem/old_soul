@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.35" height="24.643" viewBox="0 0 28.35 24.643">
+  <g id="navCart" transform="translate(0 0.85)">
+    <path id="Path_214" data-name="Path 214" d="M3722.016,30.115c5.1-.045,23.834-.177,23.834-.177l-5.523,10.029-15.813.571-.538,3.718h15.956" transform="translate(-3718.946 -28.473)" fill="none" stroke="#1d2f39" stroke-width="1.7"/>
+    <path id="Path_215" data-name="Path 215" d="M3723.238,40.186l-2.927-12.315H3717.7" transform="translate(-3717.705 -27.872)" fill="none" stroke="#1d2f39" stroke-width="1.7"/>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(4.482 18.505)" fill="none" stroke="#1d2f39" stroke-width="1.7">
+      <ellipse cx="2.644" cy="2.644" rx="2.644" ry="2.644" stroke="none"/>
+      <ellipse cx="2.644" cy="2.644" rx="1.794" ry="1.794" fill="none"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(15.583 18.505)" fill="none" stroke="#1d2f39" stroke-width="1.7">
+      <ellipse cx="2.644" cy="2.644" rx="2.644" ry="2.644" stroke="none"/>
+      <ellipse cx="2.644" cy="2.644" rx="1.794" ry="1.794" fill="none"/>
+    </g>
+  </g>
+</svg>

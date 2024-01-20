@@ -1,0 +1,10 @@
+<svg id="Account" xmlns="http://www.w3.org/2000/svg" width="21.553" height="24" viewBox="0 0 21.553 24">
+  <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(5.878)" fill="none" stroke="#1d2f39" stroke-width="2">
+    <ellipse cx="5.388" cy="5.5" rx="5.388" ry="5.5" stroke="none"/>
+    <ellipse cx="5.388" cy="5.5" rx="4.388" ry="4.5" fill="none"/>
+  </g>
+  <g id="Rectangle_12" data-name="Rectangle 12" transform="translate(0 12)" fill="none" stroke="#1d2f39" stroke-width="2">
+    <path d="M10.777,0h0A10.777,10.777,0,0,1,21.553,10.777V12a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V10.777A10.777,10.777,0,0,1,10.777,0Z" stroke="none"/>
+    <path d="M10.777,1h0a9.777,9.777,0,0,1,9.777,9.777V11a0,0,0,0,1,0,0H1a0,0,0,0,1,0,0v-.223A9.777,9.777,0,0,1,10.777,1Z" fill="none"/>
+  </g>
+</svg>

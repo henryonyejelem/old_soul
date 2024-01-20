@@ -19,6 +19,16 @@ module.exports = {
     },
     
     extend: {
+      margin: {
+        'xl': '22.5px',
+      },
+
+      lineHeight: {
+        'base': '22px',
+        'xl' : '40px',
+        '3xl': '90px',
+      },
+
       colors: {
         "primary-100" : "#1D2F39",
         "primary-200": "#DECFB1",
@@ -27,7 +37,8 @@ module.exports = {
       },
 
       fontFamily: {
-        'Neue' : ['neue-haas-grotesk-display', 'sans-serif']
+        'Neue' : ['neue-haas-grotesk-display', 'sans-serif'],
+        'NewYork' : ['NewYork', 'serif']
       }
     },
   },

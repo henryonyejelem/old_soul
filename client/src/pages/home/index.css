@@ -2,3 +2,19 @@
     background-image: url('../../assets/images/home/heroImage.jpg');
     background-size: cover;
 }
+
+.new-Arrivals {
+    background-image: url('../../assets/images/home/newArrivals.jpg');
+    background-size: cover;
+    background-position: 100% 0;
+}
+
+.men{
+    background-image: url('../../assets/images/home/men.jpg');
+    background-size: cover;
+}
+
+.women{
+    background-image: url('../../assets/images/home/women.jpg');
+    background-size: cover;
+}
