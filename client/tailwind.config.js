@@ -20,7 +20,7 @@ module.exports = {
     
     extend: {
       margin: {
-        'xl': '22.5px',
+        'xl': '20px',
       },
 
       lineHeight: {
