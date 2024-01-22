@@ -13,6 +13,7 @@
 
 .men{
     background-image: url('../../assets/images/home/men.jpg');
+    
     background-size: cover;
 }
 
@@ -25,13 +26,3 @@
     background-image: url('../../assets/images/home/discount.jpg');
     background-size: cover;
 }
-
-.slide-up{
-    animation: slide-up 0.75s cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-  
-@keyframes slide-up{
-    0% {transform: translateY(100px) }
-    100% { transform: translateY(0) }
-}
-      

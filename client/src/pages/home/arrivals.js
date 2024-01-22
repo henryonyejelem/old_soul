@@ -1,7 +1,7 @@
 import Button from '../../components/ui/button.js'
 
 import { useRef } from 'react'
-import { motion, useScroll, useMotionValueEvent} from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import useParallax from './useParallax.js'
 
 
@@ -12,10 +12,6 @@ function Arrivals() {
     offset: ["center end", "end start"]
   })
   const y = useParallax(scrollYProgress, '30%', '-130%');
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log("Page scroll: ", latest)
-  })
   
   return (
     <div className="new-Arrivals h-[100vh] relative" ref={ref}>

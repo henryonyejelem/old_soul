@@ -1,7 +1,15 @@
-import { useTransform } from "framer-motion";
+// eslint-disable-next-line
+import { useTransform, useSpring } from "framer-motion";
 
 export default function useParallax(value, start, end) {
-    return useTransform(value, [0, 1], [start, end]);
+    const y= useSpring(value, {
+        stiffness: 300,
+        damping: 40,
+        restDelta: 0.001,
+        ease: 'easeout'
+    });
+    return useTransform(y, [0, 1], [start, end]);
+    
 }
     
     

@@ -4,6 +4,8 @@ import Hero from "./hero.js"
 import Arrivals from "./arrivals.js"
 import Fall from './fall.js'
 import Popular from './popular.js'
+import Categories from './categories.js'
+
 import Button from '../../components/ui/button.js'
 import subscribeImg from '../../assets/images/home/subscribe.jpg'
 
@@ -11,23 +13,13 @@ import subscribeImg from '../../assets/images/home/subscribe.jpg'
 function Home(){  
   return (
     <div className="home">
-      <Hero/>     
+      <Hero/>  
+         
       <Arrivals/> 
-      
-      
 
-      <div className="fall2024 h-[100vh] flex">
-        <Fall/>
-      </div>  
+      <Fall/>
 
-      <div className='gender-categories h-[70vh] flex text-xl'>
-        <div className='men w-[50vw] relative'>
-          <p className='w-[80%] absolute top-[80%] left-[50%] translate-x-[-50%] bg-white z-40 text-center py-1'>MEN</p>
-        </div>
-        <div className='women w-[50vw] relative'>
-          <p className='w-[80%] absolute top-[80%] left-[50%] translate-x-[-50%] bg-white z-40 text-center py-1'>WOMEN</p>
-        </div>                
-      </div>
+      <Categories/>      
 
       <div className='popular-collection my-[70px]'>
         <div className='font-bold text-[20px] text-center mb-9'>POPULAR COLLECTION</div>
