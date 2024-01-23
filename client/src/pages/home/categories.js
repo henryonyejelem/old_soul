@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useMotionValueEvent} from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import useParallax from './useParallax.js'
 
 function Categories() {
@@ -10,10 +10,6 @@ function Categories() {
     })
     const y = useParallax(scrollYProgress, '10%', '-20%');
 
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        console.log("Page scroll: ", latest)
-    })
-  
     return (
     <div className='gender-categories h-[65vh] flex text-xl overflow-clip' ref={ref}>
     
