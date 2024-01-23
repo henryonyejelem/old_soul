@@ -4,6 +4,11 @@ import pant from "../../../assets/images/collection/women/Pants.jpg"
 import skirt from "../../../assets/images/collection/women/Skirts.jpg"
 import top from "../../../assets/images/collection/women/Tops.jpg"
 
+import dropdown from "../../../assets/icons/dropdown.svg"
+import search from "../../../assets/icons/Search Icon.svg"
+
+import Card from "../card"
+
 function Women() {
   return (
     <div className="pt-[8vh]">
@@ -19,7 +24,7 @@ function Women() {
             <div>Accessories</div>
         </div>
 
-        <div className="categories flex justify-between gap-7 mx-8">
+        <div className="categories flex justify-between mx-8 gap-10">
             <div className="">
                 <img src={coat} alt=""/>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Coats</p>
@@ -40,6 +45,38 @@ function Women() {
                 <img src={skirt} alt="" />
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Skirts</p>
             </div>
+        </div>
+
+        <div className="flex my-7 mx-8 justify-between">
+            <div className="flex text-base gap-[50px] font-medium">
+                <div className="flex gap-1">
+                    <p>Season</p>
+                    <img src={dropdown} alt="" className="h-[9px] translate-y-[10px]"/>
+                </div>
+                <div className="flex gap-1">
+                    <p>Size</p>
+                    <img src={dropdown} alt="" className="h-[9px] translate-y-[10px]"/>
+                </div>
+                <div className="flex gap-1">
+                    <p>Price</p>
+                    <img src={dropdown} alt="" className="h-[9px] translate-y-[10px]"/>
+                </div>
+                <div>Customer Top Rated</div>
+                <div>Offers</div>
+            </div>
+            <div className="w-[25vw] text-base py-2 px-5 bg-[#E9E7E7] rounded-full items-center flex gap-2">
+                <img src={search} alt="" className="h-[15px]"/>
+                <p className="text-[#898989] font-medium">Search</p>
+            </div>
+        </div>
+
+        <div className="mx-8 grid grid-cols-4 gap-6">
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
         </div>
     </div>
   )
