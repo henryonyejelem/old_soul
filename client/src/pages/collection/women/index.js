@@ -8,6 +8,7 @@ import dropdown from "../../../assets/icons/dropdown.svg"
 import search from "../../../assets/icons/Search Icon.svg"
 
 import Card from "../card"
+import db from "../../../data/women.js"
 
 function Women() {
   return (
@@ -26,23 +27,23 @@ function Women() {
 
         <div className="categories flex justify-between mx-8 gap-10">
             <div className="">
-                <img src={coat} alt=""/>
+                <div className="h-[29vh] overflow-hidden"><img src={coat} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Coats</p>
             </div>
             <div className="">
-                <img src={dress} alt="" />
+                <div className="h-[29vh] overflow-hidden"><img src={dress} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Dresses</p>
             </div>
             <div className="">
-                <img src={top} alt="" />
+                <div className="h-[29vh] overflow-hidden"><img src={top} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Tops</p>
             </div>
             <div className="">
-                <img src={pant} alt="" />
+                <div className="h-[29vh] overflow-hidden"><img src={pant} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Pants</p>
             </div>
             <div className="">
-                <img src={skirt} alt="" />
+                <div className="h-[29vh] overflow-hidden"><img src={skirt} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Skirts</p>
             </div>
         </div>
@@ -71,12 +72,7 @@ function Women() {
         </div>
 
         <div className="mx-8 grid grid-cols-4 gap-6">
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            {db.map(item => <Card name={item.name} price={item.price} src={item.ID}/>)}
         </div>
     </div>
   )

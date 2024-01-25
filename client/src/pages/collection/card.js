@@ -1,12 +1,14 @@
-import img from  "../../assets/images/collection/women/0BEGAR2WL9.jpg"
-function Card() {
+function Card(props) {
+  const src = props.src;
+  const image = require(`../../assets/images/collection/women/${src}.jpg`);  
+  
   return (
-    <div>
-        <img src={img} alt=""/>
-        <p className="w-[100%] text-center">Women Tommy Control Pull-On Pants</p>
-        <p className="w-[100%] text-center">$49.00</p>
-    </div>
-  )
+      <div className="relative">
+          <img src={image} alt=""/>          
+          <p className="w-[100%] text-center mt-2">{props.name}</p>
+          <p className="w-[100%] text-center">${Number(props.price).toFixed(2)}</p>
+      </div>
+    )
 }
 
 export default Card
