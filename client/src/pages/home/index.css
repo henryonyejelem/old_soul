@@ -13,12 +13,13 @@
 
 .men{
     background-image: url('../../assets/images/home/men.jpg');
-    
+    background-position: 50% 0;    
     background-size: cover;
 }
 
 .women{
     background-image: url('../../assets/images/home/women.jpg');
+    background-position: 50% 0; 
     background-size: cover;
 }
 

@@ -108,7 +108,7 @@ function Product() {
         </div>
 
       </div>
-      <di>Continue Shopping</di>
+      <div className='ml-8 mt-xl text-xl'>Continue Shopping</div>
     </div>
   )
 }
