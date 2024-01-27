@@ -3,7 +3,7 @@ import twitter from "../../assets/icons/Twitter Logo.svg"
 import facebook from "../../assets/icons/Facebook Logo.svg"
 function Footer() {
   return (
-    <div className="h-[15vh] bg-black text-white flex justify-between">
+    <div className="h-[15vh] mt-[50px] bg-black text-white flex justify-between">
         <div className="self-center text-4xl font-NewYork w-[33%] pl-5">Old Soul</div>
         <div className="w-[33%] flex-col justify-center">
             <ul className="flex justify-center gap-12 py-3">

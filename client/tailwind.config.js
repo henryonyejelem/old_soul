@@ -33,7 +33,7 @@ module.exports = {
         "primary-100" : "#1D2F39",
         "primary-200": "#DECFB1",
         "primary-300": "#8E979C",
-        "primary-400": "#1492E6",
+        "primary-400": "#2859AD",
       },
 
       fontFamily: {
