@@ -1,22 +1,15 @@
 import Button from '../../components/ui/button.js'
 
-import { useRef } from 'react'
-import { motion, useScroll} from 'framer-motion'
-import useParallax from './useParallax.js'
+import {Link} from 'react-router-dom'
+
+import { motion} from 'framer-motion'
+
 
 function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  })
-  const y = useParallax(scrollYProgress, '-30%', '-200%');
-
   return (
-    <div className="hero h-[100vh]" ref={ref}>
-      <motion.div 
-      style={{translateY : y}}
-      className="hero-inner absolute top-[50%] left-[15%]">
+    <div className="hero h-[100vh]">
+      <div 
+      className="hero-inner absolute top-[50%] translate-y-[-30%] left-[15%] ">
         <div className='text-6xl text-primary-100 font-extrabold leading-3xl'>
           <div className='overflow-hidden'>
             <motion.p initial={{ y: 80 }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, type: 'spring'}}>WHERE STYLE</motion.p>
@@ -45,11 +38,11 @@ function Hero() {
 
           <div className='overflow-hidden my-xl'>
             <motion.div initial={{ y: 20 }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, delay: 0.7, type: 'spring' }}>
-              <Button>SHOP NOW</Button>   
+              <Link to={`/collection/women`}><Button>SHOP NOW</Button></Link> 
             </motion.div>
           </div>    
         </div>
-      </motion.div>
+      </div>
     </div>  
   )
 }

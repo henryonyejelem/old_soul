@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import db from "../../../data/women.js"
 import rating from "../../../assets/icons/5Stars.svg"; 
 import ExpandButton from '../../../components/ui/expand.js';
+import Card from '../card.js';
 
 function Product() {
 
@@ -14,6 +15,46 @@ function Product() {
   const product = db.find((e) => e.ID === productID)
 
   const img = require(`../../../assets/images/collection/women/${productID}.jpg`); 
+
+  function getRandomItems(array, numItems) {
+    const randomItems = [];
+    const arrayLength = array.length;
+
+    if (numItems > arrayLength) {
+        console.error("Number of items requested exceeds the length of the array.");
+        return;
+    }
+
+    const indices = new Set();
+    while (indices.size < numItems) {
+        const randomIndex = Math.floor(Math.random() * arrayLength);
+        indices.add(randomIndex);
+    }
+
+    indices.forEach(index => {
+        randomItems.push(array[index]);
+    });
+
+    return randomItems;
+  }
+
+  function removeItemById(list, id) {
+      // Find the index of the item with the given id
+      const index = list.findIndex(item => item.ID === id);
+
+      // If the item with the given id exists, remove it from the list
+      if (index !== -1) {
+          list.splice(index, 1);
+          return true;
+      } else {
+          return false;
+      }
+  }
+
+  const list = getRandomItems(db, 5)
+
+  const continueShoppingList = removeItemById(list, productID) ? list : list.splice(0, 4)
+  
 
   
   return (
@@ -37,7 +78,7 @@ function Product() {
 
           <div className='flex font-bold justify-between text-[30px]'>
             <p className=' w-[70%]'>{product.name}</p>
-            <p>{product.price}</p>
+            <p>${Number(product.price).toFixed(2)}</p>
           </div>
 
           <div className='flex gap-2 items-center'>
@@ -108,7 +149,13 @@ function Product() {
         </div>
 
       </div>
-      <div className='ml-8 mt-xl text-xl'>Continue Shopping</div>
+      <div className='ml-8 mt-[50px] text-[30px]'>Continue Shopping</div>
+
+      <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
+        {continueShoppingList.map(item => <Card name={item.name} price={item.price} src={item.ID}/>)}
+      </div>
+
+
     </div>
   )
 }

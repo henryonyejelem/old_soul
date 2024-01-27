@@ -30,7 +30,7 @@ function Nav() {
   return (    
     <div className={`${nav} nav font-NewYork fixed z-40 flex justify-between items-center w-[100vw] py-[10px] transition-all ease-out duration-500`}>        
         <div className="w-[33%]"><img src = {menu} alt=""/></div>
-        <p className="text-3xl text-center w-[33% text-primary-100 font-semibold">Old Soul</p>
+        <p className="text-3xl text-center w-[33% text-primary-100">Old Soul</p>
         <ul className="flex gap-8 w-[33%] justify-end">
             <li><img src = {account} alt=""/></li>
             <li><img src = {wishlist} alt=""/></li>

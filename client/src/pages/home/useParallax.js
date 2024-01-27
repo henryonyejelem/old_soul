@@ -3,7 +3,7 @@ import { useTransform, useSpring } from "framer-motion";
 
 export default function useParallax(value, start, end) {
     const y= useSpring(value, {
-        stiffness: 300,
+        stiffness: 500,
         damping: 40,
         restDelta: 0.001,
         ease: 'easeout'
