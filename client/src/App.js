@@ -4,6 +4,7 @@ import Nav from "./components/ui/nav.js"
 import Footer from "./components/ui/footer.js"
 import Product from "./pages/collection/product/product.js"
 
+import ScrollToTop from "./components/functionality/scrollToTop.js"
 
 import { Route, Routes } from "react-router-dom"
 
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Nav/>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home/>}/>   
         <Route path="/collection/women" element={<Women/>}/>

@@ -1,5 +1,7 @@
 import {useState, useEffect}  from 'react'
 
+import {Link} from 'react-router-dom'
+
 import menu from "../../assets/icons/navMenu.svg"
 import account from "../../assets/icons/navAccount.svg"
 import wishlist from "../../assets/icons/navWishlist.svg"
@@ -30,7 +32,7 @@ function Nav() {
   return (    
     <div className={`${nav} nav font-NewYork fixed z-40 flex justify-between items-center w-[100vw] py-[10px] transition-all ease-out duration-500`}>        
         <div className="w-[33%]"><img src = {menu} alt=""/></div>
-        <p className="text-3xl text-center w-[33% text-primary-100">Old Soul</p>
+        <Link to={`/`}><p className="text-3xl text-center w-[33% text-primary-100 cursor-pointer">Old Soul</p></Link>
         <ul className="flex gap-8 w-[33%] justify-end">
             <li><img src = {account} alt=""/></li>
             <li><img src = {wishlist} alt=""/></li>

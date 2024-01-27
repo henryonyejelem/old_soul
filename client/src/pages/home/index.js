@@ -18,7 +18,7 @@ function Home(){
       <Categories/>  
       <Popular/> 
       <Discount/>
-      <Subscription />    
+      <Subscription />   
     </div>
   )
 }
