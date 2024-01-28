@@ -27,7 +27,7 @@ function Women() {
 
         <div className="categories flex justify-between mx-8 gap-10">
             <div className="">
-                <div className="h-[29vh] overflow-hidden"><img src={coat} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
+                <div className="h-[29vh] overflow-hidden"><img src={coat} alt="" className="hover:scale-[1.15] h-[100%] transition-all ease-out duration-500"/></div>
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Coats</p>
             </div>
             <div className="">

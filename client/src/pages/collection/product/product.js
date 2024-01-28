@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import db from "../../../data/women.js"
 import rating from "../../../assets/icons/5Stars.svg"; 
 import ExpandButton from '../../../components/ui/expand.js';
@@ -69,7 +69,7 @@ function Product() {
 
         <div className='w-[48%] text-base leading-9'>
           <div className='flex gap-2 text-sm text-[#656565] font-medium'>
-            <div className='underline underline-offset-4'>{g}</div>
+            <div className='underline underline-offset-4'><Link to={`/collection/women`}>{g}</Link></div>
             <div>{'>'}</div>
             <div className='underline underline-offset-4'>{c}</div>
             <div>{'>'}</div>
@@ -108,7 +108,7 @@ function Product() {
 
           <div className='w-[100%] bg-black text-white text-center my-xl py-2 font-semibold text-sm'>ADD TO BAG</div>
 
-          <div>4 interest-free payments of ${Number(product.price/4).toFixed(2)} with Klarna. </div>
+          <div>4 interest-free payments of ${Number(product.price/4).toFixed(2)} with Klarna.</div>
 
           <hr className='border-black border-[0.035rem] my-xl'/>
 
