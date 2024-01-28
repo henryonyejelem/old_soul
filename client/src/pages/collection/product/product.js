@@ -1,11 +1,18 @@
 import { useParams, Link } from 'react-router-dom'
+
+import plus from '../../../assets/icons/plus.svg'
+import minus from '../../../assets/icons/minus.svg'
+
+import {useState} from 'react'
 import db from "../../../data/women.js"
 import rating from "../../../assets/icons/5Stars.svg"; 
-import ExpandButton from '../../../components/ui/expand.js';
 import Card from '../card.js';
 
 function Product() {
-
+  const [color, setColor] = useState(1)
+  const [size, setSize] = useState('M')
+  const [expanded, setExpanded] = useState('Description')
+  
   const { productID } = useParams()
   const { category } = useParams()
   const { gender } = useParams()
@@ -15,6 +22,19 @@ function Product() {
   const product = db.find((e) => e.ID === productID)
 
   const img = require(`../../../assets/images/collection/women/${productID}.jpg`); 
+
+  function handleColorClick(num){
+    setColor(num)
+  }
+
+  function handleSizeClick(size){
+    setSize(size)
+  }
+
+  function handleButtonClick(section){
+    if(section === expanded) setExpanded('')
+    else setExpanded(section)
+  }
 
   function getRandomItems(array, numItems) {
     const randomItems = [];
@@ -52,9 +72,8 @@ function Product() {
   }
 
   const list = getRandomItems(db, 5)
-
   const continueShoppingList = removeItemById(list, productID) ? list : list.splice(0, 4)
-  
+  const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'
 
   
   return (
@@ -90,20 +109,26 @@ function Product() {
           <div>Grey Metal</div>
 
           <div className='flex gap-4'>
-            <div className='h-[35px] w-[35px] rounded-full bg-[#232936] outline outline-2 outline-offset-2 outline-primary-400'></div>
-            <div className='h-[35px] w-[35px] rounded-full bg-[#850A39]'></div>
-            <div className='h-[35px] w-[35px] rounded-full bg-[#BB9C80]'></div>
+            <button className={`h-[35px] w-[35px] rounded-full bg-[#232936] ${color===1 ? outline : null}`} onClick={() => handleColorClick(1)}></button>
+            <button className={`h-[35px] w-[35px] rounded-full bg-[#850A39] ${color===2 ? outline : null}`} onClick={() => handleColorClick(2)}></button>
+            <button className={`h-[35px] w-[35px] rounded-full bg-[#BB9C80] ${color===3 ? outline : null}`} onClick={() => handleColorClick(3)}></button>
           </div>
 
           <div className='flex gap-5 my-[15px]'>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>XS</div>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>S</div>
-            <div className='border-[0.165rem] rounded-[5px] border-black w-[65px] font-bold text-center py-[1px] 
-            outline outline-2 outline-offset-2 outline-primary-400'>M</div>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>L</div>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>XL</div>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>XXL</div>
-            <div className='border-[0.0915rem] rounded-[5px] border-black w-[65px] text-center py-[1px]'>XXXL</div>            
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XS' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('XS')}>XS</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='S' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('S')}>S</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='M' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('M')}>M</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='L' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('L')}>L</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XL' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('XL')}>XL</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XXL' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('XXL')}>XXL</button>
+            <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XXXL' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
+            } onClick={ () => handleSizeClick('XXXL')}>XXXL</button>        
           </div>
 
           <div className='w-[100%] bg-black text-white text-center my-xl py-2 font-semibold text-sm'>ADD TO BAG</div>
@@ -113,37 +138,43 @@ function Product() {
           <hr className='border-black border-[0.035rem] my-xl'/>
 
           <div>
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Description')}>
               <div className='text-xl mb'>Description & Fit</div>
-              <ExpandButton initial = {true}/>
+              {expanded === 'Description' ?  <img src={minus} alt=""/> : <img src={plus} alt=""/>}
             </div>
-            <p className='w-[95%] mt-xl'>
+            {expanded === 'Description' && <p className='w-[95%] mt-xl'>
               A perfect blend of elegance and contemporary style. This chic dress is designed to make a statement with 
               its sophisticated silhouette and feminine details. 
               The ruffled sleeves add a touch of romance, creating a graceful and eye-catching look.
-            </p>
+            </p>}
+          </div>
+
+          <hr className='border-black border-[0.035rem] my-xl transition-all'/>
+
+          <div>
+            <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Materials')}>
+              <div className='text-xl mb'>Materials</div>
+              {expanded === 'Materials' ? <img src={minus} alt=""/> : <img src={plus} alt=""/>}
+            </div>
+            {expanded === 'Materials' && <p className='w-[95%] mt-xl'>
+              A perfect blend of elegance and contemporary style. This chic dress is designed to make a statement with 
+              its sophisticated silhouette and feminine details. 
+              The ruffled sleeves add a touch of romance, creating a graceful and eye-catching look.
+            </p>}
           </div>
 
           <hr className='border-black border-[0.035rem] my-xl'/>
 
           <div>
-            <div className='flex justify-between items-center'>
-              <div className='text-xl'>Materials</div>
-              <ExpandButton initial = {false}/>
+            <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Shipping')}>
+              <div className='text-xl mb'>Shipping & Returns</div>
+              {expanded === 'Shipping' ?  <img src={minus} alt=""/> : <img src={plus} alt=""/>}
             </div>
-            <p className='w-[95%] mt-xl'>
-            </p>
-          </div>
-
-          <hr className='border-black border-[0.035rem] my-xl'/>
-
-          <div>
-            <div className='flex justify-between items-center'>
-              <div className='text-xl'>Shipping and Returns</div>
-              <ExpandButton initial = {false}/>
-            </div>
-            <p className='w-[95%] mt-xl'>
-            </p>
+            {expanded === 'Shipping' && <p className='w-[95%] mt-xl' >
+              A perfect blend of elegance and contemporary style. This chic dress is designed to make a statement with 
+              its sophisticated silhouette and feminine details. 
+              The ruffled sleeves add a touch of romance, creating a graceful and eye-catching look.
+            </p>}
           </div>
 
         </div>
