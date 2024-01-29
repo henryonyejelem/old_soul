@@ -7,7 +7,7 @@ import top from "../../../assets/images/collection/women/Tops.jpg"
 import dropdown from "../../../assets/icons/dropdown.svg"
 import search from "../../../assets/icons/Search Icon.svg"
 
-import Card from "../card"
+import Card from "../../../components/ui/card.js"
 import db from "../../../data/women.js"
 
 function Women() {

@@ -6,7 +6,7 @@ import minus from '../../../assets/icons/minus.svg'
 import {useState} from 'react'
 import db from "../../../data/women.js"
 import rating from "../../../assets/icons/5Stars.svg"; 
-import Card from '../card.js';
+import Card from '../../../components/ui/card.js';
 
 function Product() {
   const [color, setColor] = useState(1)
