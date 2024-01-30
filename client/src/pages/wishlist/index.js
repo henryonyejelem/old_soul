@@ -6,25 +6,25 @@ import Card from '../../components/ui/card.js';
 
 function Wishlist() {
     function getRandomItems(array, numItems) {
-    const randomItems = [];
-    const arrayLength = array.length;
+        const randomItems = [];
+        const arrayLength = array.length;
 
-    if (numItems > arrayLength) {
-        console.error("Number of items requested exceeds the length of the array.");
-        return;
-    }
+        if (numItems > arrayLength) {
+            console.error("Number of items requested exceeds the length of the array.");
+            return;
+        }
 
-    const indices = new Set();
-    while (indices.size < numItems) {
-        const randomIndex = Math.floor(Math.random() * arrayLength);
-        indices.add(randomIndex);
-    }
+        const indices = new Set();
+        while (indices.size < numItems) {
+            const randomIndex = Math.floor(Math.random() * arrayLength);
+            indices.add(randomIndex);
+        }
 
-    indices.forEach(index => {
-        randomItems.push(array[index]);
-    });
+        indices.forEach(index => {
+            randomItems.push(array[index]);
+        });
 
-    return randomItems;
+        return randomItems;
     }
 
     const wishlist = getRandomItems(db, 4)   
