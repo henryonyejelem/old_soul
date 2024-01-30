@@ -4,6 +4,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    boxShadow: {
+      'inner': 'inset 0 2px 8px 0 rgb(0 0 0 / 0.75)',
+    },
+
     fontSize: {
       xs: '10px',
       sm: '16px',
