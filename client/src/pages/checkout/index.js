@@ -1,4 +1,6 @@
-import Information from "./information"
+import Information from "./information.js"
+import Payment from "./payment.js"
+import Review from "./review.js"
 
 function Checkout() {
   return (

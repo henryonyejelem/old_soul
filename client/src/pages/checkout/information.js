@@ -1,7 +1,7 @@
 function Information() {
   return (
     <div className="flex flex-col gap-6 mr-[100px] text-[15px] ">
-        <div className="font-semibold text-xl">
+        <div className="font-semibold text-[30px]">
             Shipping Information
         </div>
 
