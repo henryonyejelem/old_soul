@@ -24,15 +24,12 @@ function Review() {
   }
 
   const cartlist = getRandomItems(db, 4)
-  const sum = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)).toFixed(2);
-  const tax = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)*(9.25/100)).toFixed(2);
-  const total = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)*1.0925).toFixed(2);
+
   return (
     <div className="">
       
       <div className="text-[30px] mb-xl font-semibold">Review</div> 
-
-      
+            
         <div className="">
 
           <div className="">

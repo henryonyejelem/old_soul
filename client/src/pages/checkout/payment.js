@@ -57,7 +57,7 @@ function Payment() {
         <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Klarna')}>
             <div className="flex gap-2">
                 <div className='text-[20px] mb'>Pay over time with klarna</div>
-                <img src={klarna}/>
+                <img src={klarna} alt=""/>
             </div>
             {expanded === 'Klarna' ? <img src={minus} alt=""/> : <img src={plus} alt=""/>}
         </div>
