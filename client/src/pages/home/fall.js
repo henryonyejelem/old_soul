@@ -5,8 +5,6 @@ import img1 from "../../assets/images/home/fall2024_1.jpg"
 import img2 from "../../assets/images/home/fall2024_2.jpg"
 import img3 from "../../assets/images/home/fall2024_3.jpg"
 
-import { motion } from 'framer-motion'
-
 function Fall() {
   return (
     <div className="fall2024 h-[100vh] flex">
@@ -23,11 +21,11 @@ function Fall() {
                 <Card img={img2} name={"Donegall Tweed Jacket"} price={349.99}/>
             </div>
             <div className="mt-[18%] relative">
-                <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 3, delay: 0.4, type: 'spring' }}
+                <p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 3, delay: 0.4, type: 'spring' }}
                 className="font-bold absolute right-0 text-primary-200 text-7xl leading-3xl translate-y-[-105%]">
                     FALL<br/>
                     2024
-                </motion.p>
+                </p>
                 <Card img={img3} name={"Cotten Blazer"} price={349.99}/>
             </div>
         </div>

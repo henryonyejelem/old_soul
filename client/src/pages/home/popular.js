@@ -14,24 +14,16 @@ function Popular() {
         <div>
             <ul className="flex gap-10 px-[40px]">
                 <li>
-                  <motion.img src={img1} alt="" 
-                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} 
-                    transition={{ ease: "easeOut", duration: 3, delay: 0.44, type: 'spring' }}/>
+                  <img src={img1} alt=""/>
                 </li>
                 <li>
-                  <motion.img src={img2} alt="" 
-                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} 
-                    transition={{ ease: "easeOut", duration: 3, delay: 0.84, type: 'spring' }}/>
+                  <img src={img2} alt="" />
                 </li>
                 <li>
-                  <motion.img src={img3} alt="" 
-                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} 
-                    transition={{ ease: "easeOut", duration: 3, delay: 1.24, type: 'spring' }}/>
+                  <img src={img3} alt=""/>
                 </li>
                 <li>
-                  <motion.img src={img4} alt="" 
-                    initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} 
-                    transition={{ ease: "easeOut", duration: 3, delay: 1.64, type: 'spring' }}/>
+                  <img src={img4} alt=""/>
                 </li>
                 
             </ul>

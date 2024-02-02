@@ -9,7 +9,10 @@ import Discount from './discount.js'
 import Subscription from './subscription.js'
 
 
-function Home(){  
+function Home(){ 
+  if(!localStorage.getItem('isLoggedIn')){
+    localStorage.setItem('isLoggedIn', 'false')
+  } 
   return (
     <div className="home">
       <Hero/>  

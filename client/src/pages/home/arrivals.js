@@ -1,23 +1,9 @@
 import Button from '../../components/ui/button.js'
 
-import { useRef } from 'react'
-import { motion, useScroll } from 'framer-motion'
-import useParallax from './useParallax.js'
-
-
-function Arrivals() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["center end", "end start"]
-  })
-  const y = useParallax(scrollYProgress, '30%', '-130%');
-  
+function Arrivals() {  
   return (
-    <div className="new-Arrivals h-[100vh] relative" ref={ref}>
-        <motion.div 
-        style={{translateY : y}}
-        className="absolute top-[50%] right-[8%]">
+    <div className="new-Arrivals h-[100vh] relative">
+        <div className="absolute top-[50%] right-[8%] translate-y-[-30%]">
             <div className='text-6xl text-primary-100 font-extrabold leading-3xl my-xl'>
             <p>WEEKLY NEW</p>
             <p className='text-[6.7rem]'>ARRIVALS</p>
@@ -29,7 +15,7 @@ function Arrivals() {
             </p>
             <Button>NEW COLLECTION</Button>
             </div>
-        </motion.div>
+      </div>
     </div>  
   )
 }
