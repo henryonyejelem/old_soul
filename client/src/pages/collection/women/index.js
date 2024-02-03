@@ -8,6 +8,7 @@ import dropdown from "../../../assets/icons/dropdown.svg"
 import search from "../../../assets/icons/Search Icon.svg"
 
 import Card from "../../../components/ui/card.js"
+import CategoryNav from "../../../components/ui/categoryNav.js"
 import db from "../../../data/women.js"
 
 function Women() {
@@ -19,11 +20,7 @@ function Women() {
             <div>50% OFF SALE END OF SEASON</div>
         </div>
 
-        <div className="ml-8 my-7 flex text-xl gap-5">
-            <div>Men</div>
-            <div className="font-semibold">Women</div>
-            <div>Accessories</div>
-        </div>
+        <CategoryNav active={'women'}/>
 
         <div className="categories flex justify-between mx-8 gap-10">
             <div className="">

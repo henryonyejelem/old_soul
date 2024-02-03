@@ -5,8 +5,6 @@ import img4 from "../../assets/images/home/popular4.jpg"
 
 import Button from "../../components/ui/button"
 
-import { motion } from 'framer-motion'
-
 function Popular() {
   return (
       <div className='popular-collection my-[70px]'>

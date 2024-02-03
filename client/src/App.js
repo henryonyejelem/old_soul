@@ -3,6 +3,7 @@ import Women from "./pages/collection/women/index.js"
 import Nav from "./components/ui/nav.js"
 import Footer from "./components/ui/footer.js"
 import Product from "./pages/collection/product/product.js"
+import Shop from "./pages/shop/index.js"
 import Wishlist from "./pages/wishlist/index.js"
 import Cart from "./pages/cart/index.js"
 import Checkout from "./pages/checkout/index.js"
@@ -16,7 +17,8 @@ function App() {
     <>      
       <NavbarWrapper/>
       <Routes>
-        <Route path="/" element={<Home/>}/>   
+        <Route path="/" element={<Home/>}/>  
+        <Route path="/shop" element={<Shop/>}/>  
         <Route path="/collection/women" element={<Women/>}/>
         <Route path="/collection/:gender/:category/:name/:productID" element={<Product/>}/>
         <Route path="/wishlist" element={<Wishlist/>}/>

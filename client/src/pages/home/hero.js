@@ -38,7 +38,7 @@ function Hero() {
 
           <div className='overflow-hidden my-xl'>
             <motion.div initial={{ y: 20 }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, delay: 0.7, type: 'spring' }}>
-              <Link to={`/collection/women`}><Button>SHOP NOW</Button></Link> 
+              <Link to={`/shop`}><Button>SHOP NOW</Button></Link> 
             </motion.div>
           </div>    
         </div>
