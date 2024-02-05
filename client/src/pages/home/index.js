@@ -12,7 +12,7 @@ import Subscription from './subscription.js'
 function Home(){ 
   if(!localStorage.getItem('isLoggedIn')){
     localStorage.setItem('isLoggedIn', 'false')
-  } 
+  }   
   return (
     <div className="home">
       <Hero/>  

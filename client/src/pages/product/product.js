@@ -1,15 +1,23 @@
 import { useParams, Link } from 'react-router-dom'
+import {  useContext } from 'react'
 
-import plus from '../../../assets/icons/plus.svg'
-import minus from '../../../assets/icons/minus.svg'
+import CategoryNav from "../../components/ui/categoryNav.js"
+
+import plus from '../../assets/icons/plus.svg'
+import minus from '../../assets/icons/minus.svg'
 
 import {useState} from 'react'
-import db from "../../../data/women.js"
-import rating from "../../../assets/icons/5Stars.svg"; 
-import Card from '../../../components/ui/card.js';
+import db from "../../data/women.js"
+import rating from "../../assets/icons/5Stars.svg"; 
+import Card from '../../components/ui/card.js';
+
+import getSizeString from '../../components/functionality/getSizeString.js'
+import colorToHex from '../../components/functionality/colorToHex.js'
+
+import {CartContext} from "../../context/cartContext.js"
 
 function Product() {
-  const [color, setColor] = useState(1)
+  const [color, setColor] = useState(0)
   const [size, setSize] = useState('M')
   const [expanded, setExpanded] = useState('Description')
   
@@ -19,9 +27,11 @@ function Product() {
   const g = gender.charAt(0).toUpperCase() + gender.slice(1)
   const c = category.charAt(0).toUpperCase() + category.slice(1)
 
+  const { dispatch } = useContext(CartContext);
+
   const product = db.find((e) => e.ID === productID)
 
-  const img = require(`../../../assets/images/collection/women/${productID}.jpg`); 
+  const img = require(`../../assets/images/collection/women/${productID}.jpg`); 
 
   function handleColorClick(num){
     setColor(num)
@@ -36,53 +46,20 @@ function Product() {
     else setExpanded(section)
   }
 
-  function getRandomItems(array, numItems) {
-    const randomItems = [];
-    const arrayLength = array.length;
+  const handleAddToCart = () => {
+    const item = {name : product.name, price : product.price, ID : productID, size : getSizeString(size), color : product.colors[color]}
+    console.log(`${item.name} has been added to cart`)
+    dispatch({ type: 'ADD_TO_CART', payload: item })
+  };
 
-    if (numItems > arrayLength) {
-        console.error("Number of items requested exceeds the length of the array.");
-        return;
-    }
+  const list = db.filter(item => item.ID !== productID)
 
-    const indices = new Set();
-    while (indices.size < numItems) {
-        const randomIndex = Math.floor(Math.random() * arrayLength);
-        indices.add(randomIndex);
-    }
-
-    indices.forEach(index => {
-        randomItems.push(array[index]);
-    });
-
-    return randomItems;
-  }
-
-  function removeItemById(list, id) {
-      // Find the index of the item with the given id
-      const index = list.findIndex(item => item.ID === id);
-
-      // If the item with the given id exists, remove it from the list
-      if (index !== -1) {
-          list.splice(index, 1);
-          return true;
-      } else {
-          return false;
-      }
-  }
-
-  const list = getRandomItems(db, 5)
-  const continueShoppingList = removeItemById(list, productID) ? list : list.splice(0, 4)
-  const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'
-
+  const continueShoppingList = list.slice(0,4)
+  const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'  
   
   return (
     <div className="pt-[8vh]">
-      <div className="ml-8 my-7 flex text-xl gap-5">
-          <div>Men</div>
-          <div>Women</div>
-          <div>Accessories</div>
-      </div>
+      <CategoryNav/>
       <div className="flex gap-11 mx-8">
         <div className='w-[50%] h-[90vh]'><img src = {img} alt="" className='w-[100%] h-[100%] object-cover'/></div>
 
@@ -106,13 +83,14 @@ function Product() {
             <div className='flex'>(<p className='underline underline-offset-4'>30</p>)</div>
           </div>
 
-          <div>Grey Metal</div>
+          <div className='mb-[3px]'>{product.colors[color]}</div>
 
           <div className='flex gap-4'>
-            <button className={`h-[35px] w-[35px] rounded-full bg-[#232936] ${color===1 ? outline : null}`} onClick={() => handleColorClick(1)}></button>
-            <button className={`h-[35px] w-[35px] rounded-full bg-[#850A39] ${color===2 ? outline : null}`} onClick={() => handleColorClick(2)}></button>
-            <button className={`h-[35px] w-[35px] rounded-full bg-[#BB9C80] ${color===3 ? outline : null}`} onClick={() => handleColorClick(3)}></button>
+            {product.colors.map((item, pos) => 
+              <button className={`h-[35px] w-[35px] rounded-full ${color===pos ? outline : null}`} onClick={() => handleColorClick(pos)} style={{backgroundColor : colorToHex(item)}}></button>
+            )}            
           </div>
+
 
           <div className='flex gap-5 my-[15px]'>
             <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XS' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
@@ -131,7 +109,7 @@ function Product() {
             } onClick={ () => handleSizeClick('XXXL')}>XXXL</button>        
           </div>
 
-          <div className='w-[100%] bg-black text-white text-center my-xl py-2 font-semibold text-sm'>ADD TO BAG</div>
+          <button className='w-[100%] bg-black text-white text-center my-xl py-2 font-semibold text-sm' onClick={handleAddToCart}>ADD TO BAG</button>
 
           <div>4 interest-free payments of ${Number(product.price/4).toFixed(2)} with Klarna.</div>
 
@@ -157,9 +135,9 @@ function Product() {
               {expanded === 'Materials' ? <img src={minus} alt=""/> : <img src={plus} alt=""/>}
             </div>
             {expanded === 'Materials' && <p className='w-[95%] mt-xl'>
-              A perfect blend of elegance and contemporary style. This chic dress is designed to make a statement with 
-              its sophisticated silhouette and feminine details. 
-              The ruffled sleeves add a touch of romance, creating a graceful and eye-catching look.
+            Meticulously crafted from high-grade, durable cotton, 
+            the exterior shell offers unparalleled protection against everyday wear 
+            and tear while exuding sophistication and style.
             </p>}
           </div>
 
@@ -171,9 +149,9 @@ function Product() {
               {expanded === 'Shipping' ?  <img src={minus} alt=""/> : <img src={plus} alt=""/>}
             </div>
             {expanded === 'Shipping' && <p className='w-[95%] mt-xl' >
-              A perfect blend of elegance and contemporary style. This chic dress is designed to make a statement with 
-              its sophisticated silhouette and feminine details. 
-              The ruffled sleeves add a touch of romance, creating a graceful and eye-catching look.
+            We offer a range of delivery options to suit your needs, including standard and expedited shipping. 
+            Please refer to our shipping policy for detailed information 
+            on delivery times and charges.
             </p>}
           </div>
 

@@ -9,11 +9,15 @@ import paypal from "../../assets/icons/paypal.png"
 
 import {useState} from 'react'
 
-function Payment() {
+function Payment(props) {
     const [expanded, setExpanded] = useState('Card')
     function handleButtonClick(section){
         if(section === expanded) setExpanded('')
         else setExpanded(section)
+    }
+
+    const handleClick = () => {
+        props.handler("review")
     }
     
   return (
@@ -83,7 +87,7 @@ function Payment() {
 
         <hr className='border-black border-[0.035rem] my-xl transition-all'/>
 
-        <button className="bg-black text-white font-medium py-2 text-[15px] w-[100%] my-[24px]">Next</button>
+        <button className="bg-black text-white font-medium py-2 text-[15px] w-[100%] my-[24px]" onClick={handleClick}>Next</button>
 
         <div className="text-[15px] flex gap- font-semibold">
             <div>{'<'}</div>

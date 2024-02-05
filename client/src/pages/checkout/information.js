@@ -1,4 +1,7 @@
-function Information() {
+function Information(props) {
+    const handleClick = () => {
+        props.handler("payment")
+    }
   return (
     <div className="flex flex-col gap-6 mr-[100px] text-[15px] ">
         <div className="font-semibold text-[30px]">
@@ -28,11 +31,11 @@ function Information() {
             <div className="">Use as billing address</div>                  
         </div>
         
-        <button className="bg-black text-white font-medium py-2 text-[15px]">Next</button>
+        <button className="bg-black text-white font-medium py-2 text-[15px]" onClick={handleClick}>Next</button>
 
         <div className="text-[15px] flex gap-1 font-semibold">
             <div>{'<'}</div>
-            <div>continue shopping</div>
+            <div >continue shopping</div>
         </div>
     </div>
   )

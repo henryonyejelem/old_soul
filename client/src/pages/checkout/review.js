@@ -1,29 +1,10 @@
-import db from "../../data/women.js"
+import { useContext } from "react";
+
+import { CartContext } from '../../context/cartContext.js';
 import CheckoutCard from "../../components/ui/checkoutCard.js";
 function Review() {
-  function getRandomItems(array, numItems) {
-      const randomItems = [];
-      const arrayLength = array.length;
-
-      if (numItems > arrayLength) {
-          console.error("Number of items requested exceeds the length of the array.");
-          return;
-      }
-
-      const indices = new Set();
-      while (indices.size < numItems) {
-          const randomIndex = Math.floor(Math.random() * arrayLength);
-          indices.add(randomIndex);
-      }
-
-      indices.forEach(index => {
-          randomItems.push(array[index]);
-      });
-
-      return randomItems;
-  }
-
-  const cartlist = getRandomItems(db, 4)
+  const { state } = useContext(CartContext);
+  const cartlist = state.cart
 
   return (
     <div className="">
