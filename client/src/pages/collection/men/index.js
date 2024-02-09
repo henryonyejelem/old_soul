@@ -9,9 +9,9 @@ import search from "../../../assets/icons/Search Icon.svg"
 
 import Card from "../../../components/ui/card.js"
 import CategoryNav from "../../../components/ui/categoryNav.js"
-import db from "../../../data/women.js"
+import db from "../../../data/men.js"
 
-function Women() {
+function Men() {
   return (
     <div className="pt-[8vh]">
         <div className="flex justify-around text-2xl font-bold bg-primary-300 text-primary-100">
@@ -20,7 +20,7 @@ function Women() {
             <div>50% OFF SALE END OF SEASON</div>
         </div>
 
-        <CategoryNav active={'women'}/>
+        <CategoryNav active={'men'}/>
 
         <div className="categories flex justify-between mx-8 gap-10">
             <div className="">
@@ -69,10 +69,10 @@ function Women() {
         </div>
 
         <div className="mx-8 grid grid-cols-4 gap-6">
-            {db.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={"women"}/>)}
+            {db.map(item => <Card name="test" price={item.price} src={item.ID} gender="men"/>)}
         </div>
     </div>
   )
 }
 
-export default Women
+export default Men

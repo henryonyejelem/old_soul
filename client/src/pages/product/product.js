@@ -31,7 +31,7 @@ function Product() {
 
   const product = db.find((e) => e.ID === productID)
 
-  const img = require(`../../assets/images/collection/women/${productID}.jpg`); 
+  const img = require(`../../assets/images/collection/${gender}/${productID}.jpg`); 
 
   function handleColorClick(num){
     setColor(num)
@@ -161,7 +161,7 @@ function Product() {
       <div className='ml-8 mt-[50px] text-[30px]'>Continue Shopping</div>
 
       <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
-        {continueShoppingList.map(item => <Card name={item.name} price={item.price} src={item.ID}/>)}
+        {continueShoppingList.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender}/>)}
       </div>
 
 

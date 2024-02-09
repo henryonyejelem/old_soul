@@ -157,10 +157,7 @@ const womenDB = [
         price : 169.00,
         colors : ["Biege", "White"],
         tags : "",
-    },
-    
-   
-
+    }
 ]
 
 export default womenDB;
