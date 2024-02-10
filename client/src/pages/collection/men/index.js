@@ -68,8 +68,8 @@ function Men() {
             </div>
         </div>
 
-        <div className="mx-8 grid grid-cols-4 gap-6">
-            {db.map(item => <Card name="test" price={item.price} src={item.ID} gender="men"/>)}
+        <div className="mx-8 grid grid-cols-4 gap-6 mb-[70px]">
+            {db.map(item => <Card name={item.name} price={item.price} src={item.ID} gender="men"/>)}
         </div>
     </div>
   )

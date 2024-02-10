@@ -6,8 +6,10 @@ import CategoryNav from "../../components/ui/categoryNav.js"
 import plus from '../../assets/icons/plus.svg'
 import minus from '../../assets/icons/minus.svg'
 
+import womenDB from "../../data/women.js"
+import menDB from "../../data/men.js"
+
 import {useState} from 'react'
-import db from "../../data/women.js"
 import rating from "../../assets/icons/5Stars.svg"; 
 import Card from '../../components/ui/card.js';
 
@@ -24,14 +26,23 @@ function Product() {
   const { productID } = useParams()
   const { category } = useParams()
   const { gender } = useParams()
+
+  const db = gender === "women" ? womenDB : menDB;
+
+  console.log(gender,db);
+
   const g = gender.charAt(0).toUpperCase() + gender.slice(1)
   const c = category.charAt(0).toUpperCase() + category.slice(1)
+
+  
 
   const { dispatch } = useContext(CartContext);
 
   const product = db.find((e) => e.ID === productID)
 
   const img = require(`../../assets/images/collection/${gender}/${productID}.jpg`); 
+
+  
 
   function handleColorClick(num){
     setColor(num)
@@ -47,7 +58,7 @@ function Product() {
   }
 
   const handleAddToCart = () => {
-    const item = {name : product.name, price : product.price, ID : productID, size : getSizeString(size), color : product.colors[color]}
+    const item = {name : product.name, price : product.price, ID : productID, size : getSizeString(size), color : product.colors[color], gender : gender}
     console.log(`${item.name} has been added to cart`)
     dispatch({ type: 'ADD_TO_CART', payload: item })
   };
@@ -65,7 +76,7 @@ function Product() {
 
         <div className='w-[48%] text-base leading-9'>
           <div className='flex gap-2 text-sm text-[#656565] font-medium'>
-            <div className='underline underline-offset-4'><Link to={`/collection/women`}>{g}</Link></div>
+            <div className='underline underline-offset-4'><Link to={`/collection/${gender}`}>{g}</Link></div>
             <div>{'>'}</div>
             <div className='underline underline-offset-4'>{c}</div>
             <div>{'>'}</div>

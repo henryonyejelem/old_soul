@@ -1,7 +1,7 @@
 import React from 'react'
 
 function CartCard(props) {
-    const src = require(`../../assets/images/collection/women/${props.src}.jpg`)
+    const src = require(`../../assets/images/collection/${props.gender}/${props.src}.jpg`)
     return (
         <div className='flex mb-[5vh] justify-between'>
             <div className='flex gap-3 w-[60%] relative'> 

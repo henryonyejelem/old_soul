@@ -30,7 +30,7 @@ function Cart() {
 
           </div>
           <div className="">
-            {cartlist.map(item => <CartCard name={item.name} price={item.price} src={item.ID} quantity={item.quantity} color={item.color} size={item.size}/>)}
+            {cartlist.map(item => <CartCard name={item.name} price={item.price} src={item.ID} quantity={item.quantity} color={item.color} size={item.size} gender={item.gender}/>)}
           </div>
           <hr className="border-[0.5px] border-[#707070] my-xl"/>
 
