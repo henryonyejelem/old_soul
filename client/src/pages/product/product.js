@@ -9,7 +9,9 @@ import minus from '../../assets/icons/minus.svg'
 import womenDB from "../../data/women.js"
 import menDB from "../../data/men.js"
 
-import {useState} from 'react'
+import {useState ,useEffect} from 'react'
+import axios from "axios"
+
 import rating from "../../assets/icons/5Stars.svg"; 
 import Card from '../../components/ui/card.js';
 
@@ -17,6 +19,8 @@ import getSizeString from '../../components/functionality/getSizeString.js'
 import colorToHex from '../../components/functionality/colorToHex.js'
 
 import {CartContext} from "../../context/cartContext.js"
+
+
 
 function Product() {
   const [color, setColor] = useState(0)

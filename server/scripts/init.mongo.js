@@ -310,5 +310,16 @@ const womenDB = [
     }
 ]
 
-
 db.womens.insertMany(womenDB);
+
+const user = {
+    name: {
+        first: "Henry",
+        last: "Onyejelem",
+    },
+    email: "onyejelemco@gmail.com",
+    password: "97132953Af"
+}
+
+db.users.insertOne(user);
+     

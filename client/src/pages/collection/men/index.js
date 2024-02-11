@@ -1,17 +1,28 @@
-import coat from "../../../assets/images/collection/women/Coat.jpg"
-import dress from "../../../assets/images/collection/women/Dresses.jpg"
-import pant from "../../../assets/images/collection/women/Pants.jpg"
-import skirt from "../../../assets/images/collection/women/Skirts.jpg"
-import top from "../../../assets/images/collection/women/Tops.jpg"
+import coat from "../../../assets/images/collection/men/Coats.jpg"
+import suit from "../../../assets/images/collection/men/Suit.jpg"
+import pant from "../../../assets/images/collection/men/Pants.jpg"
+import sweater from "../../../assets/images/collection/men/Sweaters.jpg"
+import top from "../../../assets/images/collection/men/Tops.jpg"
 
 import dropdown from "../../../assets/icons/dropdown.svg"
 import search from "../../../assets/icons/Search Icon.svg"
 
 import Card from "../../../components/ui/card.js"
 import CategoryNav from "../../../components/ui/categoryNav.js"
-import db from "../../../data/men.js"
+
+import axios from "axios"
+import {useState, useEffect} from "react"
 
 function Men() {
+    const [db, setDB] = useState([]);
+    let url = "http://localhost:8000/men";
+
+    useEffect(() => {              
+        axios.get(url)
+        .then(result => {
+            setDB(result.data);
+        })
+    }, [url])
   return (
     <div className="pt-[8vh]">
         <div className="flex justify-around text-2xl font-bold bg-primary-300 text-primary-100">
@@ -28,8 +39,8 @@ function Men() {
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Coats</p>
             </div>
             <div className="">
-                <div className="h-[29vh] overflow-hidden"><img src={dress} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
-                <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Dresses</p>
+                <div className="h-[29vh] overflow-hidden"><img src={suit} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
+                <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Suit</p>
             </div>
             <div className="">
                 <div className="h-[29vh] overflow-hidden"><img src={top} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
@@ -40,8 +51,8 @@ function Men() {
                 <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Pants</p>
             </div>
             <div className="">
-                <div className="h-[29vh] overflow-hidden"><img src={skirt} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
-                <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Skirts</p>
+                <div className="h-[29vh] overflow-hidden"><img src={sweater} alt="" className="hover:scale-[1.15] transition-all ease-out duration-500"/></div>
+                <p className="text-[19px] mt-xl font-bold text-center w-[100%]">Sweaters</p>
             </div>
         </div>
 

@@ -9,9 +9,22 @@ import search from "../../../assets/icons/Search Icon.svg"
 
 import Card from "../../../components/ui/card.js"
 import CategoryNav from "../../../components/ui/categoryNav.js"
-import db from "../../../data/women.js"
+
+import axios from "axios"
+import {useState, useEffect} from "react"
 
 function Women() {
+
+    const [db, setDB] = useState([]);
+    let url = "http://localhost:8000/women";
+
+    useEffect(() => {              
+        axios.get(url)
+        .then(result => {
+            setDB(result.data);
+        })
+    }, [url])
+
   return (
     <div className="pt-[8vh]">
         <div className="flex justify-around text-2xl font-bold bg-primary-300 text-primary-100">

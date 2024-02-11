@@ -11,9 +11,11 @@ mongoose.connect(url)
 
 const womenRouter = require('./routes/women.js')
 const menRouter = require('./routes/men.js')
+const userRouter = require('./routes/user.js')
 
 app.use('/women', womenRouter)
 app.use('/men', menRouter)
+app.use('/user', userRouter)
 
 app.get('/', (req, res) => {
     res.sendStatus(200);
