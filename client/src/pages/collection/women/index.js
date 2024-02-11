@@ -82,7 +82,7 @@ function Women() {
         </div>
 
         <div className="mx-8 grid grid-cols-4 gap-6 mb-[70px]">
-            {db.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={"women"}/>)}
+            {db.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={"women"} category = {item.tags}/>)}
         </div>
     </div>
   )

@@ -8,4 +8,21 @@ router.get('/', (req, res) =>{
     .catch(err => res.json(err))
 })
 
+router.get('/:itemID', (req, res) => {
+    //res.send(req.params.item);
+    MenModel.findOne({ ID : req.params.itemID})
+    .then(items => res.json(items))
+    .catch(err => res.json(err))    
+})
+
+router.get('/continueShopping/:itemID', (req, res) => {
+    //res.send(req.params.item);
+    MenModel.aggregate([
+        { $match: { ID: { $ne: req.params.itemID} } }, // Exclude the item
+        { $sample: { size: 4 } } 
+    ])
+    .then(items => res.json(items))
+    .catch(err => res.json(err))    
+})
+
 module.exports = router;

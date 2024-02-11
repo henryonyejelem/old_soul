@@ -1,61 +1,50 @@
 import { useParams, Link } from 'react-router-dom'
+import {  useContext } from 'react'
+
+import CategoryNav from "../../components/ui/categoryNav.js"
+
+import plus from '../../assets/icons/plus.svg'
+import minus from '../../assets/icons/minus.svg'
+
+import womenDB from "../../data/women.js"
+import menDB from "../../data/men.js"
+
 import {useState ,useEffect} from 'react'
 import axios from "axios"
 
-import {  useContext } from 'react'
-import {CartContext} from "../../context/cartContext.js"
-import CategoryNav from "../../components/ui/categoryNav.js"
 import rating from "../../assets/icons/5Stars.svg"; 
+import Card from '../../components/ui/card.js';
+
 import getSizeString from '../../components/functionality/getSizeString.js'
 import colorToHex from '../../components/functionality/colorToHex.js'
-import plus from '../../assets/icons/plus.svg'
-import minus from '../../assets/icons/minus.svg'
-import Card from '../../components/ui/card.js';
+
+import {CartContext} from "../../context/cartContext.js"
 
 
 
 function Product() {
+  const [color, setColor] = useState(0)
+  const [size, setSize] = useState('M')
+  const [expanded, setExpanded] = useState('Description')
+  
   const { productID } = useParams()
   const { category } = useParams()
   const { gender } = useParams()
 
-  const [product, setProduct] = useState({
-    name : "",
-    ID : "",
-    colors : [""],
-    tags : "",
-});
-  const [continueShopping, setContinue] = useState([]);
+  const db = gender === "women" ? womenDB : menDB;
 
-  let url1 = `http://localhost:8000/${gender}/${productID}`;
-  let url2 = `http://localhost:8000/${gender}/continueshopping/${productID}`;
+  console.log(gender,db);
 
-  useEffect(() => {              
-      axios.get(url1)
-      .then(result => {
-          setProduct(result.data);
-      })
-  }, [url1])
-
-  useEffect(() => {              
-    axios.get(url2)
-    .then(result => {
-        setContinue(result.data);
-    })
-  }, [url2])
+  const g = gender.charAt(0).toUpperCase() + gender.slice(1)
+  const c = category.charAt(0).toUpperCase() + category.slice(1)  
 
   const { dispatch } = useContext(CartContext);
 
+  const product = db.find((e) => e.ID === productID)
+
   const img = require(`../../assets/images/collection/${gender}/${productID}.jpg`); 
 
-  const g = gender.charAt(0).toUpperCase() + gender.slice(1)
-  const c = category.charAt(0).toUpperCase() + category.slice(1) 
   
-  const [color, setColor] = useState(0)
-  const [size, setSize] = useState('M')
-  const [expanded, setExpanded] = useState('Description')
-
-  const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'
 
   function handleColorClick(num){
     setColor(num)
@@ -65,16 +54,21 @@ function Product() {
     setSize(size)
   }
 
+  function handleButtonClick(section){
+    if(section === expanded) setExpanded('')
+    else setExpanded(section)
+  }
+
   const handleAddToCart = () => {
     const item = {name : product.name, price : product.price, ID : productID, size : getSizeString(size), color : product.colors[color], gender : gender}
     console.log(`${item.name} has been added to cart`)
     dispatch({ type: 'ADD_TO_CART', payload: item })
   };
 
-  function handleButtonClick(section){
-    if(section === expanded) setExpanded('')
-    else setExpanded(section)
-  }
+  const list = db.filter(item => item.ID !== productID)
+
+  const continueShoppingList = list.slice(0,4)
+  const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'  
   
   return (
     <div className="pt-[8vh]">
@@ -102,13 +96,14 @@ function Product() {
             <div className='flex'>(<p className='underline underline-offset-4'>30</p>)</div>
           </div>
 
-          {<div className='mb-[3px]'>{product.colors[0]}</div>}
+          <div className='mb-[3px]'>{product.colors[color]}</div>
 
           <div className='flex gap-4'>
             {product.colors.map((item, pos) => 
               <button className={`h-[35px] w-[35px] rounded-full ${color===pos ? outline : null}`} onClick={() => handleColorClick(pos)} style={{backgroundColor : colorToHex(item)}}></button>
             )}            
           </div>
+
 
           <div className='flex gap-5 my-[15px]'>
             <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XS' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
@@ -132,7 +127,6 @@ function Product() {
           <div>4 interest-free payments of ${Number(product.price/4).toFixed(2)} with Klarna.</div>
 
           <hr className='border-black border-[0.035rem] my-xl'/>
-
 
           <div>
             <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Description')}>
@@ -175,14 +169,13 @@ function Product() {
           </div>
 
         </div>
+
       </div>
-      
       <div className='ml-8 mt-[50px] text-[30px]'>Continue Shopping</div>
 
       <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
-        {continueShopping.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender}/>)}
+        {continueShoppingList.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender}/>)}
       </div>
-      
 
 
     </div>

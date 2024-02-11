@@ -4,7 +4,7 @@ function Card(props) {
   const image = require(`../../assets/images/collection/${props.gender}/${src}.jpg`);  
   
   return (
-      <Link to={`/collection/${props.gender}/tag/${props.name}/${props.src}`}>
+      <Link to={`/collection/${props.gender}/${props.category}/${props.name}/${props.src}`}>
         <div className="relative">
             <img src={image} alt=""/>          
             <p className="w-[100%] text-center mt-2">{props.name}</p>
