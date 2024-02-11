@@ -146,7 +146,7 @@ const menDB = [
     }
 ]
 
-db.men.insertMany(menDB);
+db.mens.insertMany(menDB);
 
 const womenDB = [
     {
@@ -311,4 +311,4 @@ const womenDB = [
 ]
 
 
-db.women.insertMany(womenDB);
+db.womens.insertMany(womenDB);

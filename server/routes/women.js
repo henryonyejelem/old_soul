@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const ProductModel = require('../models/product.js')
+const WomenModel = require('../models/women.js')
 
 router.get('/', (req, res) =>{
-    ProductModel.find({})
+    WomenModel.find({})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 })
