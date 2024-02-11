@@ -10,8 +10,10 @@ const url = "mongodb+srv://Admin:admin2001@projectclusters.vjtbori.mongodb.net/o
 mongoose.connect(url)
 
 const womenRouter = require('./routes/women.js')
+const menRouter = require('./routes/men.js')
 
 app.use('/women', womenRouter)
+app.use('/men', menRouter)
 
 app.get('/', (req, res) => {
     res.sendStatus(200);
