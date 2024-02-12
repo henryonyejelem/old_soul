@@ -1,6 +1,42 @@
 import BG from "../../assets/images/signin/background.jpg"
 import google from "../../assets/icons/google.svg"
-function SignUp() {
+import axios from 'axios'
+
+import {useState} from 'react'
+
+import { useNavigate, Link } from "react-router-dom";
+
+
+
+function SignIn() {
+  const [error, setError] = useState();
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const navigate = useNavigate();
+
+  const handleSubmitSignIn = (event) => {
+      event.preventDefault();
+      const name = {firstName, lastName}      
+
+      if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+        setError('Invalid email address.');        
+      }
+
+      else{
+        axios.post('http://localhost:8000/user/signup', {name, email, password})
+        .then(result => {            
+            if(result.data){
+              localStorage.setItem('isLoggedIn', 'true')
+              navigate("/")
+            }                                        
+        }).catch(err => console.log(err))
+
+      }
+  }
+
   return (
     <div className="min-h-[100vh] flex">
       <div className="w-[60%] flex flex-col items-center">
@@ -14,28 +50,27 @@ function SignUp() {
             <img src={google} alt=""/>
             <div>Continue with Google</div>
           </div>
-          <div className="font-semibold text-[20px] text-[#707070] my-[30px] justify-between flex gap-8">
-            <div className="border-b-[0.11rem] pb-2 border-b-[#707070] flex-grow">First Name</div>
-            <div className="border-b-[0.11rem] pb-2 border-b-[#707070] flex-grow">Last Name</div>
-          </div>
-        
-          <div className="border-b-[0.11rem] pb-2 font-semibold text-[20px] border-b-[#707070] text-[#707070]">
-            Email
-          </div>
-          <div className="border-b-[0.11rem] pb-2 font-semibold text-[20px] border-b-[#707070] text-[#707070] my-[30px]">
-            Password
-          </div>
-          <div className="flex justify-between">
-            <div className="flex items-center gap-1 font-semibold  text-[#707070]">
-                <input type="checkbox" id="checkbox" name="checkbox"></input>  
-                <div className="font-semibold text-[#707070]">remember me</div>                  
+
+          <form action="POST" onSubmit={handleSubmitSignIn}>
+            {error ? <div className = "text-[15px] font-semibold text-red-600 mb-xl">{error}</div> : true}
+            <div className="flex gap-4 my-[30px]">
+              <input onChange={(e) => setFirstName(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="First Name"/>
+              <input onChange={(e) => setLastName(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Last Name"/>
             </div>
-            <div className="font-semibold  text-[#707070] border-b-[#707070] border-b-[0.11rem] max-w-max">already have an account?</div>
-          </div>
-
-          <div className="text-white bg-black text-center py-2 text-[20px] my-[30px]">Sign up</div>
-
+            <input onChange={(e) => setEmail(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Email"/>
+            <input onChange={(e) => setPassword(e.target.value)} required className="my-[30px] font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Password" type="password"/>
           
+            <div className="flex justify-between">
+              <div className="flex items-center gap-1 font-semibold  text-[#707070]">
+                  <input type="checkbox" id="checkbox" name="checkbox"></input>  
+                  <div className="font-semibold text-[#707070]">remember me</div>                  
+              </div>
+              <Link to={"/signin"}><div className="font-semibold  text-[#707070] border-b-[#707070] border-b-[0.11rem] max-w-max">already have an account?</div></Link>
+            </div>
+
+            <button type="submit" className="text-white bg-black text-center py-2 text-[20px] my-[30px] w-[100%]">Sign up</button>
+
+          </form>         
         </div>
       </div>   
 
@@ -46,4 +81,4 @@ function SignUp() {
   )
 }
 
-export default SignUp
+export default SignIn

@@ -59,7 +59,7 @@ function Wishlist() {
             </div>
 
             <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
-                {wishlist.map(item => <Card name={item.name} price={item.price} src={item.ID}/>)}
+                {wishlist.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={"women"} category={item.tag}/>)}
             </div>
 
             

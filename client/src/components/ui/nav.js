@@ -35,8 +35,8 @@ function Nav() {
         <Link to={`/`}><p className="text-3xl text-center w-[33% text-primary-100 cursor-pointer">Old Soul</p></Link>
         <ul className="flex gap-8 w-[33%] justify-end">
             {localStorage.getItem('isLoggedIn') === 'true' ? <li><img src = {account} alt=""/></li> : <Link to={"/signin"}><li><img src = {account} alt=""/></li></Link>}
-            {localStorage.getItem('isLoggedIn') === 'false' ? <Link to = {'/wishlist'}><li><img src = {wishlist} alt=""/></li></Link>: <li><img src = {wishlist} alt=""/></li> } 
-            {localStorage.getItem('isLoggedIn') === 'false' ? <Link to = {'/cart'}><li><img src = {cart} alt=""/></li></Link> : <li><img src = {cart} alt=""/></li>}
+            {localStorage.getItem('isLoggedIn') === 'true' ? <Link to = {'/wishlist'}><li><img src = {wishlist} alt=""/></li></Link>: <li><img src = {wishlist} alt=""/></li> } 
+            {localStorage.getItem('isLoggedIn') === 'true' ? <Link to = {'/cart'}><li><img src = {cart} alt=""/></li></Link> : <li><img src = {cart} alt=""/></li>}
         </ul>
     </div>    
   )

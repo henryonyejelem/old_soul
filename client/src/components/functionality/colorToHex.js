@@ -15,7 +15,7 @@ function colorToHex(colorName) {
         case 'sky blue':
             return '#87ceeb';
         case 'white':
-            return '#ffffff';
+            return '#E8E8E8';
         case 'olive':
             return '#556b2f';
         case 'soft cream':

@@ -102,7 +102,7 @@ function Product() {
             <div className='flex'>(<p className='underline underline-offset-4'>30</p>)</div>
           </div>
 
-          {<div className='mb-[3px]'>{product.colors[0]}</div>}
+          {<div className='mb-[3px]'>{product.colors[color]}</div>}
 
           <div className='flex gap-4'>
             {product.colors.map((item, pos) => 
