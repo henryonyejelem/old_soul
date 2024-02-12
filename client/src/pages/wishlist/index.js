@@ -3,6 +3,8 @@ import dropdown from "../../assets/icons/dropdown.svg"
 import db from "../../data/women.js"
 import Card from '../../components/ui/card.js';
 
+import { useWishlist } from '../../context/wishlistContext.js'
+
 
 function Wishlist() {
     function getRandomItems(array, numItems) {
@@ -27,7 +29,9 @@ function Wishlist() {
         return randomItems;
     }
 
-    const wishlist = getRandomItems(db, 4)   
+    const { wishlistItems } = useWishlist();
+    const wishlist = wishlistItems   
+    
 
     
     return (

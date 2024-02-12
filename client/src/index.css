@@ -8,9 +8,6 @@
     url("./assets/fonts/NewYork.otf") format("opentype")
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   margin: 0;

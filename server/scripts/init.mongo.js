@@ -176,7 +176,7 @@ const womenDB = [
         ID : "CKMXBDJQM7",
         price : 56.70,
         colors : ["Lilae", "Autumn", "Cardinal"],
-        tags : "Dress",
+        tags : "Dresses",
     },
     
     {
@@ -184,7 +184,7 @@ const womenDB = [
         ID : "IU8MIAW332",
         price : 89.50,
         colors : ["Gold", "Black"],
-        tags : "Dress",
+        tags : "Dresses",
     },
     
     {
@@ -192,7 +192,7 @@ const womenDB = [
         ID : "5VQVGPP024",
         price : 99.00,
         colors : ["Ocean Blue", "Olive", "White"],
-        tags : "Dress",
+        tags : "Dresses",
     },
     
     {
@@ -200,7 +200,7 @@ const womenDB = [
         ID : "YGQLAYZDX0",
         price : 209.99,
         colors : ["Cardinal", "Tan"],
-        tags : "Dress",
+        tags : "Dresses",
     },
     
     
@@ -234,7 +234,7 @@ const womenDB = [
         ID : "L1YIJ6KOTM",
         price : 99.00,
         colors : ["Olive", "Autumn"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -242,7 +242,7 @@ const womenDB = [
         ID : "8EEDHX16R0",
         price : 56.25,
         colors : ["Black", "Tan"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -258,7 +258,7 @@ const womenDB = [
         ID : "BP9CLJ7GYY",
         price : 150.00,
         colors : ["Sky Blue", "Storm"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -274,7 +274,7 @@ const womenDB = [
         ID : "FBOCSGOSPX",
         price : 99.98,
         colors : ["Dark Metal", "Tan", "Biege", "Coral"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -282,7 +282,7 @@ const womenDB = [
         ID : "9JPQWD9TVH",
         price : 49.50,
         colors : ["Vintage Black", "Biege", "White"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -290,7 +290,7 @@ const womenDB = [
         ID : "MZ5XJGGFJ8",
         price : 119.25,
         colors : ["Cardinal", "Vintage Black", "Cardinal"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -298,7 +298,7 @@ const womenDB = [
         ID : "DITCBMFHCT",
         price : 89.00,
         colors : ["Gold", "Vintage Black"],
-        tags : "Dress",
+        tags : "Dresses",
     },
 
     {
@@ -306,7 +306,7 @@ const womenDB = [
         ID : "DYXKCRKENU",
         price : 169.00,
         colors : ["Biege", "White"],
-        tags : "Coat",
+        tags : "Coats",
     }
 ]
 

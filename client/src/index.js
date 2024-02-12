@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {CartProvider} from "../src/context/cartContext.js"
+import { WishlistProvider } from './context/wishlistContext.js'
 import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from "react-router-dom"
@@ -12,7 +13,9 @@ root.render(
   //<React.StrictMode>
     <BrowserRouter forceRefresh={true}>
       <CartProvider>
-        <App />
+        <WishlistProvider>
+          <App />
+        </WishlistProvider>        
       </CartProvider>      
     </BrowserRouter>
   //</React.StrictMode>

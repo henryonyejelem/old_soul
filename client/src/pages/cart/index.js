@@ -71,7 +71,7 @@ function Cart() {
           <div>4 interest-free payments of {Number(total/4).toFixed(2)} with Klarna. </div>
 
           <div className="text-center bg-black text-white my-2">
-            {total > 0.00 ? <Link to="/checkout">CHECKOUT {total}</Link> : "CHECKOUT"}
+            {total > 0.00 ? <Link to="/checkout">CHECKOUT ${total}</Link> : "CHECKOUT"}
           </div>
 
         </div>

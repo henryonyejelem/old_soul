@@ -27,8 +27,7 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/signin" element={<SignIn/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
-        
+        <Route path="/signup" element={<SignUp/>}/>        
       </Routes> 
       <FooterWrapper/>
     </>         

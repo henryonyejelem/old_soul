@@ -7,7 +7,7 @@ const initialState = {
 
 // Define reducer function to handle state updates
 const cartReducer = (state, action) => {
-  switch (action.type) {
+  switch (action.type) {    
     case 'ADD_TO_CART':      
       const existingIndex = state.cart.findIndex(item => item.ID === action.payload.ID);
       if (existingIndex !== -1) {

@@ -1,9 +1,11 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import {useState ,useEffect} from 'react'
 import axios from "axios"
 
-import {  useContext } from 'react'
+import { useContext } from 'react'
 import {CartContext} from "../../context/cartContext.js"
+import { useWishlist } from '../../context/wishlistContext.js'
+import Heart from '../../components/ui/heart.js'
 import CategoryNav from "../../components/ui/categoryNav.js"
 import rating from "../../assets/icons/5Stars.svg"; 
 import getSizeString from '../../components/functionality/getSizeString.js'
@@ -45,6 +47,7 @@ function Product() {
   }, [url2])
 
   const { dispatch } = useContext(CartContext);
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
 
   const img = require(`../../assets/images/collection/${gender}/${productID}.jpg`); 
 
@@ -75,12 +78,36 @@ function Product() {
     if(section === expanded) setExpanded('')
     else setExpanded(section)
   }
+
+  const location = useLocation();
+  const [isFilled, setIsFilled] = useState(false);
+  
+  useEffect(() => {
+    setIsFilled(isInWishlist(productID));
+  }, [location])
+
+  const item = {name : product.name, price : product.price, ID : product.ID, category : product.tags}
+  const handleHeartClick = () => {    
+    if(!isFilled){      
+      console.log(`${item.name} has been added to wishlist`)
+      addToWishlist(item);  
+    }
+    else{
+      console.log(`${item.name} has been removed from wishlist`)  
+      removeFromWishlist(item.ID);      
+    }
+    setIsFilled(!isFilled)  
+      
+  };
   
   return (
     <div className="pt-[8vh]">
       <CategoryNav/>
       <div className="flex gap-11 mx-8">
-        <div className='w-[50%] h-[90vh]'><img src = {img} alt="" className='w-[100%] h-[100%] object-cover'/></div>
+        <div className='w-[50%] h-[90vh] relative'>
+          <img src = {img} alt="" className='w-[100%] h-[100%] object-cover'/>
+          <Heart filled={isFilled} onClick={handleHeartClick} />
+        </div>
 
         <div className='w-[48%] text-base leading-9'>
           <div className='flex gap-2 text-sm text-[#656565] font-medium'>
@@ -180,7 +207,7 @@ function Product() {
       <div className='ml-8 mt-[50px] text-[30px]'>Continue Shopping</div>
 
       <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
-        {continueShopping.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender}/>)}
+        {continueShopping.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender} category={item.tags}/>)}
       </div>
       
 
