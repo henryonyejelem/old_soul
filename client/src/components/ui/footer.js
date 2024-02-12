@@ -2,17 +2,24 @@ import insta from "../../assets/icons/Instagram Logo.svg"
 import twitter from "../../assets/icons/Twitter Logo.svg"
 import facebook from "../../assets/icons/Facebook Logo.svg"
 function Footer() {
+  const handleClick = () => {
+    localStorage.setItem("isLoggedIn", "false")
+    window.scroll(0,0)
+    window.location.reload();
+  }
+
   return (
     <div className="h-[15vh] bg-black text-white flex justify-between">
         <div className="self-center text-4xl font-NewYork w-[33%] pl-5">Old Soul</div>
         <div className="w-[33%] flex-col justify-center">
-            <ul className="flex justify-center gap-12 py-3">
-                <li>Help</li>
-                <li>Contact</li>
-                <li>Stores</li>
-                <li>Privacy</li>
-                <li>Terms</li>
-            </ul>
+            <div className="flex justify-center gap-12 py-3">
+                <div>Help</div>
+                <div>Contact</div>
+                <div>Stores</div>
+                <div>Privacy</div>
+                <div>Terms</div>
+                <button onClick={handleClick}>Logout</button>
+            </div>
 
             <ul className="flex justify-center gap-12">
                 <li><img src={insta} alt="" /></li>

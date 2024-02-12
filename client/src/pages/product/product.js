@@ -86,7 +86,7 @@ function Product() {
     setIsFilled(isInWishlist(productID));
   }, [location])
 
-  const item = {name : product.name, price : product.price, ID : product.ID, category : product.tags}
+  const item = {name : product.name, price : product.price, ID : product.ID, category : product.tags, gender : gender}
   const handleHeartClick = () => {    
     if(!isFilled){      
       console.log(`${item.name} has been added to wishlist`)
