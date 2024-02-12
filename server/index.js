@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors')
@@ -6,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const url = "mongodb+srv://Admin:admin2001@projectclusters.vjtbori.mongodb.net/oldSoul?retryWrites=true&w=majority";
+const url = process.env.REACT_APP_DB_CONNECTION_STRING;
 mongoose.connect(url)
 
 const womenRouter = require('./routes/women.js')

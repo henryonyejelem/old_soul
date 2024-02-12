@@ -83,7 +83,7 @@ function Product() {
   const [isFilled, setIsFilled] = useState(false);
   
   useEffect(() => {
-    setIsFilled(isInWishlist(productID));
+    setIsFilled(isInWishlist(productID)); // eslint-disable-next-line
   }, [location])
 
   const item = {name : product.name, price : product.price, ID : product.ID, category : product.tags, gender : gender}
