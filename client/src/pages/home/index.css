@@ -2,6 +2,7 @@
     background-image: url('../../assets/images/home/heroImage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    
 }
 
 .new-Arrivals {
@@ -10,6 +11,19 @@
     background-position: 100% 0;
     background-repeat: no-repeat;
 }
+
+
+@media (max-width: 50em) {
+    .hero {
+        background-image: url('../../assets/images/home/heroImageMobile.jpg');
+        background-position: 50% 0%;
+    }
+    .new-Arrivals {
+        background-image: url('../../assets/images/home/newArrivalsMobile.jpg');
+        background-position: 50% 0;
+    }
+}
+
 
 .men{
     background-image: url('../../assets/images/home/men.jpg');

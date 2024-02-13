@@ -9,10 +9,10 @@ function Footer() {
   }
 
   return (
-    <div className="h-[15vh] bg-black text-white flex justify-between">
-        <div className="self-center text-4xl font-NewYork w-[33%] pl-5">Old Soul</div>
+    <div className="min-h-[15vh] bg-black text-white flex justify-between w-[100vw] md:justify-center sm:text-[11px]">
+        <div className="self-center text-4xl font-NewYork w-[33%] pl-5 md:hidden">Old Soul</div>
         <div className="w-[33%] flex-col justify-center">
-            <div className="flex justify-center gap-12 py-3">
+            <div className="flex justify-center gap-12 py-3 sm:gap-4">
                 <div>Help</div>
                 <div>Contact</div>
                 <div>Stores</div>
@@ -30,7 +30,7 @@ function Footer() {
             <div className="py-3 text-center">© 2024 Old Soul. All rights reserved. oldsoul.com</div>
             
         </div>
-        <div className="w-[33%]">            
+        <div className="w-[33%] md:hidden">            
         </div>
     </div>
   )

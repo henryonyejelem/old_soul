@@ -46,6 +46,11 @@ module.exports = {
     }, 
     
     extend: {
+      screens: {
+        'min-sm' : {'min': '639px'},
+        'min-md' : {'min': '767px'}
+      },
+
       margin: {
         'xl': '20px',
       },

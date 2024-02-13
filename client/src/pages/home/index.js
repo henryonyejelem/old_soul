@@ -14,7 +14,7 @@ function Home(){
     localStorage.setItem('isLoggedIn', 'false')
   }   
   return (
-    <div className="home">
+    <div className="">
       <Hero/>  
       <Arrivals/> 
       <Fall/>

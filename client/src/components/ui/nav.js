@@ -26,7 +26,7 @@ function Nav() {
     return () =>  { window.removeEventListener("scroll", handleScroll); }
   }, [isTopOfPage]);
 
-  const nav = isTopOfPage ? "sm:px-[0px] sm:scale-[100%] scale-[115%] px-[155px]" : "sm:px-[0px] scale-[100%] px-[35px] bg-white "
+  const nav = isTopOfPage ? "lg:px-[80px] lg:scale-[100%] scale-[115%]  px-[155px]" : "md:px-[30px] scale-[100%] px-[35px] bg-white "
   
 
   return (    
