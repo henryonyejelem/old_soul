@@ -38,17 +38,18 @@ module.exports = {
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
 
-      'xs': {'max': '416px'},
+      'xs': {'max': '470px'},
       // => @media (max-width: 639px) { ... }
 
-      '2xs': {'max': '355px'},
+      '2xs': {'max': '390px'},
       // => @media (max-width: 639px) { ... }
     }, 
     
     extend: {
       screens: {
         'min-sm' : {'min': '639px'},
-        'min-md' : {'min': '767px'}
+        'min-md' : {'min': '767px'},
+        'min-lg' : {'min': '1042px'}
       },
 
       margin: {

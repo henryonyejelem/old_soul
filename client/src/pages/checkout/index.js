@@ -17,13 +17,13 @@ function Checkout() {
     }
 
     const cartlist = state.cart
-    const sum = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)).toFixed(2);
-    const tax = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)*(9.25/100)).toFixed(2);
-    const total = Number(cartlist.reduce((acc, obj) => acc + obj.price, 0)*1.0925).toFixed(2);
+    const sum = Number(cartlist.reduce((acc, obj) => acc + (obj.price*obj.quantity), 0)).toFixed(2);
+    const tax = Number(cartlist.reduce((acc, obj) => acc + (obj.price*obj.quantity), 0)*(9.25/100)).toFixed(2);
+    const total = Number(cartlist.reduce((acc, obj) => acc + (obj.price*obj.quantity), 0)*1.0925).toFixed(2);
 
   return (
-    <div className='flex gap-10 ml-[20vw] min-h-[100vh]'>
-        <div className="pt-[6vh] w-[60%]">
+    <div className='flex gap-10 ml-[20vw] xs:ml-6 min-h-[100vh] lg:flex-col'>
+        <div className="pt-[6vh] w-[60%] lg:w-[100%]">
             <div className="font-NewYork text-[48px]">
                 Old Soul
             </div>
@@ -38,12 +38,11 @@ function Checkout() {
             {active === "payment" && <Payment handler={handleClick}/>}
             {active === "review" && <Review/>}
         </div>
-        <div className="shadow-inner pt-[18vh] px-[3vw] w-[40%] leading-8 bg-[#F0F0F0] text-[15px]">
+        <div className="min-lg:shadow-inner min-lg:pt-[18vh] min-lg:px-[3vw] min-lg:w-[40%] leading-8 bg-[#F0F0F0] text-[15px] lg:mr-[100px] xs:mr-4">
             <div className="flex justify-between items-end mb-xl">
                 <div className="text-[30px] font-bold">Order summary</div>
                 <div className=" text-primary-400 underline underline-offset-2">Edit Cart</div>
             </div>
-
             <div className="flex justify-between">
                 <div>Subtotal</div>
                 <div>${sum}</div>
@@ -61,7 +60,7 @@ function Checkout() {
                 <div>Order Total</div>
                 <div>${total}</div>
             </div>
-            <div className="">Have gift card or coupon? Add your code</div>
+            <div className="lg:mb-xl">Have gift card or coupon? Add your code</div>
 
         </div>
     </div>

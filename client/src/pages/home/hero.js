@@ -7,21 +7,21 @@ import { motion} from 'framer-motion'
 
 function Hero() {
   const y_val = window.innerWidth < 600 ? 40 : 80
-  const y_val2 = window.innerWidth < 600 ? 90 : 118
+  const y_val2 = window.innerWidth < 600 ? 90 : 117
   return (
     <div className="hero h-[100vh]">
       <div 
       className="hero-inner absolute min-md:top-[50%] min-md:translate-y-[-30%] left-[15%] md:left-[50%] md:translate-x-[-50%] bottom-[5vh]">
-        <div className='text-6xl text-primary-100 font-extrabold leading-3xl md:text-white md:text-6xl sm:text-[55px] xs:text-[50px] sm:leading-[50px]'>
+        <div className='text-6xl text-primary-100 font-extrabold leading-3xl md:text-white md:text-6xl sm:text-[55px] xs:text-[55px] 2xs:text-[43px] sm:leading-[50px]'>
           <div className='overflow-hidden'>
-            <motion.p initial={{ y: y_val }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, type: 'spring'}}>WHERE STYLE</motion.p>
+            <motion.p initial={{ y: y_val }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1, type: 'spring'}}>WHERE STYLE</motion.p>
           </div>
           <div className='overflow-hidden'>
-            <motion.p initial={{ y: y_val }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, delay: 0.08, type: 'spring'}}>MEETS</motion.p>
+            <motion.p initial={{ y: y_val }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1, delay: 0.08, type: 'spring'}}>MEETS</motion.p>
           </div>
           <div className='overflow-hidden'>
-            <motion.p className='bg-primary-100 text-primary-200 text-center py-1 my-xl md:bg-white md:text-primary-100 sm:my-2 sm:py-4 md:w-[79vw] sm:w-[90vw]' 
-            initial={{ y: y_val2}} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1.4, delay: 0.16, type: 'spring' }}>EXPRESSION</motion.p>
+            <motion.p className='bg-primary-100 text-primary-200 text-center py-1 my-xl md:bg-white md:text-primary-100 sm:my-2 sm:py-4 md:w-[79vw] sm:w-[90vw] xs:w-[89vw]' 
+            initial={{ y: y_val2, opacity:0}} whileInView={{ y: 0, opacity: 100 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1, delay: 0.16, type: 'spring' }}>EXPRESSION</motion.p>
           </div>
         </div>
         <div className='text-base text-black font-normal w-[550px] leading-base md:hidden'>          

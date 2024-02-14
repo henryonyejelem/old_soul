@@ -21,22 +21,22 @@ function Payment(props) {
     }
     
   return (
-    <div>
-        <div className="font-semibold text-[30px]">
+    <div className="lg:mr-[100px] xs:mr-4">
+        <div className="font-semibold text-[30px] md:text-[25px]">
             Payment
         </div>
        
-        <hr className='border-black border-[0.035rem] my-xl transition-all'/>
+        <hr className='border-black bg-black border-[0.035rem] my-xl transition-all'/>
 
         <div>
         <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Card')}>
-            <div className="flex gap-3">
-                <div className='text-[20px] font-medium'>Card Payments</div>
+            <div className="flex gap-3 md:gap-1">
+                <div className='text-[20px] font-medium md:text-[17px]'>Card Payments</div>
                 <div className='flex gap-1'>
-                    <img src={visa} alt=""/>
-                    <img src={amex} alt=""/>
-                    <img src={discover} alt=""/>
-                    <img src={master} alt=""/>
+                    <img src={visa} alt="" className="md:h-[22px]"/>
+                    <img src={amex} alt="" className="md:h-[22px]"/>
+                    <img src={discover} alt="" className="md:h-[22px]"/>
+                    <img src={master} alt="" className="md:h-[22px]"/>
                 </div>
             </div>
             {expanded === 'Card' ?  <img src={minus} alt=""/> : <img src={plus} alt=""/>}
@@ -44,7 +44,7 @@ function Payment(props) {
         {expanded === 'Card' && 
         <div className="w-[90%] flex flex-col gap-7 mt-xl"> 
             <input placeholder="Card Number" className="border pl-2 py-1 border-[#707070] w-[100%]" />           
-            <div className="flex gap-3">
+            <div className="flex gap-3 md:flex-col md:gap-7">
                 <input placeholder="Expiry Date" className="border pl-2 py-1 border-[#707070] flex-grow"/>
                 <input placeholder="CVC/CVV" className="border pl-2 py-1 border-[#707070] flex-grow" />
             </div>            
@@ -55,12 +55,12 @@ function Payment(props) {
         }
         </div>
 
-        <hr className='border-black border-[0.035rem] my-xl transition-all'/>
+        <hr className='border-black bg-black border-[0.035rem] my-xl transition-all'/>
 
         <div>
         <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Klarna')}>
             <div className="flex gap-2">
-                <div className='text-[20px] mb'>Pay over time with klarna</div>
+                <div className='text-[20px] mb md:text-[17px]'>Pay over time with klarna</div>
                 <img src={klarna} alt=""/>
             </div>
             {expanded === 'Klarna' ? <img src={minus} alt=""/> : <img src={plus} alt=""/>}
@@ -70,12 +70,12 @@ function Payment(props) {
         </p>}
         </div>
 
-        <hr className='border-black border-[0.035rem] my-xl'/>
+        <hr className='border-black bg-black border-[0.035rem] my-xl'/>
 
         <div>
             <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Paypal')}>
                 <div className="flex gap-2">
-                    <div className='text-[20px]'>Paypal</div>
+                    <div className='text-[20px] md:text-[17px]'>Paypal</div>
                     <img src={paypal} alt=""/>
                 </div>
                 {expanded === 'Paypal' ?  <img src={minus} alt=""/> : <img src={plus} alt=""/>}
@@ -85,7 +85,7 @@ function Payment(props) {
             </p>}
         </div>
 
-        <hr className='border-black border-[0.035rem] my-xl transition-all'/>
+        <hr className='border-black bg-black border-[0.035rem] my-xl transition-all'/>
 
         <button className="bg-black text-white font-medium py-2 text-[15px] w-[100%] my-[24px]" onClick={handleClick}>Next</button>
 
