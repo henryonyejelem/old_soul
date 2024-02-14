@@ -101,26 +101,30 @@ function Product() {
   };
   
   return (
-    <div className="pt-[8vh]">
-      <CategoryNav/>
-      <div className="flex gap-11 mx-8">
-        <div className='w-[50%] h-[90vh] relative'>
+    <div className="min-sm:pt-[8vh]">
+      <div className='sm:hidden'><CategoryNav/></div>
+      <div className='min-sm:hidden sm:w-[100vw] sm:h-[80vh] relative'>
+        <img src={img} className='w-[100%] h-[100%] object-cover'></img>
+        <Heart filled={isFilled} onClick={handleHeartClick} />
+      </div>
+      <div className="flex gap-11 mx-8 sm:mx-4">
+        <div className='w-[50%] h-[90vh] relative sm:hidden'>
           <img src = {img} alt="" className='w-[100%] h-[100%] object-cover'/>
           <Heart filled={isFilled} onClick={handleHeartClick} />
         </div>
 
-        <div className='w-[48%] text-base leading-9'>
-          <div className='flex gap-2 text-sm text-[#656565] font-medium'>
+        <div className='min-sm:w-[48%] w-[100%] text-base leading-9 '>
+          <div className='flex gap-2 text-sm text-[#656565] font-medium sm:text-[14px]'>
             <div className='underline underline-offset-4'><Link to={`/collection/${gender}`}>{g}</Link></div>
             <div>{'>'}</div>
             <div className='underline underline-offset-4'>{c}</div>
             <div>{'>'}</div>
-            <div>{product.name}</div>
+            <div className='lg:leading-5 lg:mt-[0.5rem] lg:mb-[10px]'>{product.name}</div>
           </div>
 
-          <div className='flex font-bold justify-between text-[30px]'>
-            <p className=' w-[70%]'>{product.name}</p>
-            <p>${Number(product.price).toFixed(2)}</p>
+          <div className='flex font-bold gap-4 justify-between text-[30px] md:flex-col md:gap-2'>
+            <p className=' w-[70%] md:w-[100%]'>{product.name}</p>
+            <p className='md:text-[26px] md:font-semibold'>${Number(product.price).toFixed(2)}</p>
           </div>
 
           <div className='flex gap-2 items-center'>
@@ -137,7 +141,7 @@ function Product() {
             )}            
           </div>
 
-          <div className='flex gap-5 my-[15px]'>
+          <div className='flex gap-5 my-[15px] flex-wrap '>
             <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='XS' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
             } onClick={ () => handleSizeClick('XS')}>XS</button>
             <button className={`rounded-[5px] border-black w-[65px] text-center py-[1px] ${size==='S' ? `${outline} border-[0.125rem]` : 'border-[0.0915rem]'}`
@@ -158,7 +162,7 @@ function Product() {
 
           <div>4 interest-free payments of ${Number(product.price/4).toFixed(2)} with Klarna.</div>
 
-          <hr className='border-black border-[0.035rem] my-xl'/>
+          <hr className='border-black bg-black border-[0.035rem] my-xl'/>
 
 
           <div>
@@ -173,7 +177,7 @@ function Product() {
             </p>}
           </div>
 
-          <hr className='border-black border-[0.035rem] my-xl transition-all'/>
+          <hr className='border-black bg-black border-[0.035rem] my-xl transition-all'/>
 
           <div>
             <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Materials')}>
@@ -187,7 +191,7 @@ function Product() {
             </p>}
           </div>
 
-          <hr className='border-black border-[0.035rem] my-xl'/>
+          <hr className='border-black bg-black  border-[0.035rem] my-xl'/>
 
           <div>
             <div className='flex justify-between items-center' onClick={()=>handleButtonClick('Shipping')}>
@@ -204,9 +208,9 @@ function Product() {
         </div>
       </div>
       
-      <div className='ml-8 mt-[50px] text-[30px]'>Continue Shopping</div>
+      <div className='ml-8 mt-[50px] text-[30px] sm:ml-4'>Continue Shopping</div>
 
-      <div className="mx-8 grid grid-cols-4 gap-6 my-xl">
+      <div className="mx-8 grid grid-cols-4 gap-6 my-xl sm:mx-4 md:grid-cols-2">
         {continueShopping.map(item => <Card name={item.name} price={item.price} src={item.ID} gender={gender} category={item.tags}/>)}
       </div>
       

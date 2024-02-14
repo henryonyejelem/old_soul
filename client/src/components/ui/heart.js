@@ -8,7 +8,7 @@ const Heart = ({ filled, onClick }) => {
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="heart absolute top-3 right-3"
+        className="heart absolute min-sm:top-3 right-3 sm:bottom-3"
         onClick={onClick}
       >
         <path

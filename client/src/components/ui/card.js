@@ -11,10 +11,10 @@ function Card(props) {
   
   return (
       <Link to={`/collection/${props.gender}/${props.category}/${props.name}/${props.src}`} onClick={handleClick} >
-        <div className="relative">
+        <div className="relative md:text-[11px]">
             <img src={image} alt=""/>          
-            <p className="w-[100%] text-center mt-2">{props.name}</p>
-            <p className="w-[100%] text-center">${Number(props.price).toFixed(2)}</p>
+            <p className="w-[100%] min-md:text-center mt-2">{props.name}</p>
+            <p className="w-[100%] min-md:text-center">${Number(props.price).toFixed(2)}</p>
         </div>
       </Link>
     )

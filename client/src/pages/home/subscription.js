@@ -3,7 +3,7 @@ import subscribeImg from '../../assets/images/home/subscribe.jpg'
 
 function Subscription() {
   return (
-    <div className='subscribe flex justify-center min-h-[100vh] gap-12 md:flex-col md:items-center'>
+    <div className='md:my-[50px] subscribe flex justify-center min-h-[100vh] gap-12 md:flex-col md:items-center'>
         <div className='my-auto'>
             <img src={subscribeImg} alt="" className="h-[75vh] object-cover"/>
         </div>

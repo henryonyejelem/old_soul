@@ -13,12 +13,12 @@ function Popular() {
         <div className='font-bold text-[20px] text-center mb-9'>POPULAR COLLECTION</div>
         <div className="flex flex-col justify-end">        
             <div className="flex mx-auto gap-10 overflow-scroll w-[95vw]">                
-              <img src={img1} alt=""/>       
-              <img src={img2} alt=""/>
-              <img src={img3} alt=""/>
-              <img src={img4} alt="" />
-              <img src={img5} alt=""/>
-              <img src={img6} alt=""/>
+              <img src={img1} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>       
+              <img src={img2} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
+              <img src={img3} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
+              <img src={img4} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
+              <img src={img5} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
+              <img src={img6} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
             </div> 
           <div className="px-[40px] my-xl">
               <Button>BROWSE COLLECTION</Button>

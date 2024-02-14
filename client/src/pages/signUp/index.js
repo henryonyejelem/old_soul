@@ -39,7 +39,7 @@ function SignIn() {
 
   return (
     <div className="min-h-[100vh] flex">
-      <div className="w-[60%] flex flex-col items-center">
+      <div className="w-[60%] lg:w-[100%] flex flex-col items-center">
         <div className="w-[70%]">
           <div className="font-NewYork text-[65px] text-center mt-5 mb-10">Old Soul</div>
           <div className="text-[43px] max-w-max font-medium">
@@ -74,7 +74,7 @@ function SignIn() {
         </div>
       </div>   
 
-      <div className="flex-grow ">
+      <div className="flex-grow lg:hidden">
         <img src={BG} className="h-[100vh] object-cover" alt=""/>
       </div>      
     </div>
