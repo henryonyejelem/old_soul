@@ -10,7 +10,7 @@ function Footer() {
 
   return (
     <div className="min-h-[15vh] bg-black text-white flex justify-between md:justify-center sm:text-[11px]">
-        <div className="self-center text-4xl font-NewYork w-[33%] pl-5 md:hidden">Old Soul</div>
+        <div className="self-center text-3xl font-NewYork w-[33%] pl-5 md:hidden">OLD SOUL</div>
         <div className="w-[33%] flex-col justify-center">
             <div className="flex justify-center gap-12 py-3 sm:gap-4">
                 <div>Help</div>

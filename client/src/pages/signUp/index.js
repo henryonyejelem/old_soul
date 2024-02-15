@@ -53,9 +53,9 @@ function SignIn() {
 
           <form action="POST" onSubmit={handleSubmitSignIn}>
             {error ? <div className = "text-[15px] font-semibold text-red-600 mb-xl">{error}</div> : true}
-            <div className="flex gap-4 my-[30px]">
+            <div className="flex gap-4 my-[30px] sm:flex-col">
               <input onChange={(e) => setFirstName(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="First Name"/>
-              <input onChange={(e) => setLastName(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Last Name"/>
+              <input onChange={(e) => setLastName(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none sm:mt-[15px]" placeholder="Last Name"/>
             </div>
             <input onChange={(e) => setEmail(e.target.value)} required className="font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Email"/>
             <input onChange={(e) => setPassword(e.target.value)} required className="my-[30px] font-semibold text-[20px] placeholder-[#707070] w-[100%] border-b-[0.11rem] pb-2 border-b-[#707070] outline-none" placeholder="Password" type="password"/>
