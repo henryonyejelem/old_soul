@@ -12,7 +12,7 @@ function Popular() {
       <div className='popular-collection my-[70px]'>
         <div className='font-bold text-[20px] text-center mb-9'>POPULAR COLLECTION</div>
         <div className="flex flex-col justify-end">        
-            <div className="flex mx-auto gap-10 overflow-scroll w-[95vw]">                
+            <div className="flex mx-auto gap-10 overflow-auto w-[95vw]">                
               <img src={img1} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>       
               <img src={img2} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>
               <img src={img3} alt="" className="md:w-[55vw] md:h-[45vh] md:object-cover"/>

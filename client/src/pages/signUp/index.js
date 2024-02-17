@@ -41,7 +41,7 @@ function SignIn() {
     <div className="min-h-[100vh] flex">
       <div className="w-[60%] lg:w-[100%] flex flex-col items-center">
         <div className="w-[70%]">
-          <div className="font-NewYork text-[65px] text-center mt-5 mb-10">Old Soul</div>
+          <div className="font-NewYork text-[55px] text-center mt-5 mb-10">OLD SOUL</div>
           <div className="text-[43px] max-w-max font-medium">
             WHERE STYLE<br/>
             MEETS EXPRESSION
