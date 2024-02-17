@@ -13,6 +13,7 @@ import colorToHex from '../../components/functionality/colorToHex.js'
 import plus from '../../assets/icons/plus.svg'
 import minus from '../../assets/icons/minus.svg'
 import Card from '../../components/ui/card.js';
+import Popup from '../../components/ui/popup.js'
 
 
 
@@ -57,6 +58,9 @@ function Product() {
   const [color, setColor] = useState(0)
   const [size, setSize] = useState('M')
   const [expanded, setExpanded] = useState('Description')
+  const [showAddToBag, setShowAddToBag] = useState(false)
+  const [showAddToWishlist, setShowAddToWishlist] = useState(false);
+  const [showRemovedFromWishlist, setShowRemovedFromWishlist] = useState(false);
 
   const outline = 'outline outline-2 outline-offset-2 outline-primary-400 font-bold'
 
@@ -72,6 +76,12 @@ function Product() {
     const item = {name : product.name, price : product.price, ID : productID, size : getSizeString(size), color : product.colors[color], gender : gender}
     console.log(`${item.name} has been added to cart`)
     dispatch({ type: 'ADD_TO_CART', payload: item })
+
+    setShowAddToBag(true);
+
+    setTimeout(() => {
+      setShowAddToBag(false);
+    }, 780);
   };
 
   function handleButtonClick(section){
@@ -90,11 +100,23 @@ function Product() {
   const handleHeartClick = () => {    
     if(!isFilled){      
       console.log(`${item.name} has been added to wishlist`)
-      addToWishlist(item);  
+      addToWishlist(item); 
+      
+      setShowAddToWishlist(true);
+
+      setTimeout(() => {
+        setShowAddToWishlist(false);
+      }, 780);
     }
     else{
       console.log(`${item.name} has been removed from wishlist`)  
-      removeFromWishlist(item.ID);      
+      removeFromWishlist(item.ID);  
+      
+      setShowRemovedFromWishlist(true);
+
+      setTimeout(() => {
+        setShowRemovedFromWishlist(false);
+      }, 780);
     }
     setIsFilled(!isFilled)  
       
@@ -102,9 +124,13 @@ function Product() {
   
   return (
     <div className="min-sm:pt-[8vh]">
+      {showAddToBag && <Popup name={"Bag"} type={"Added"}/>}
+      {showAddToWishlist && <Popup name={"Wishlist"} type={"Added"}/>}
+      {showRemovedFromWishlist && <Popup name={"Wishlist"} type={"Removed"}/>}
+
       <div className='sm:hidden'><CategoryNav/></div>
       <div className='min-sm:hidden sm:w-[100vw] sm:h-[80vh] relative'>
-        <img src={img} className='w-[100%] h-[100%] object-cover'></img>
+        <img src={img} className='w-[100%] h-[100%] object-cover' alt=""></img>
         <Heart filled={isFilled} onClick={handleHeartClick} />
       </div>
       <div className="flex gap-11 mx-8 sm:mx-4">

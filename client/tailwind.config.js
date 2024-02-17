@@ -72,7 +72,19 @@ module.exports = {
       fontFamily: {
         'Neue' : ['neue-haas-grotesk-display', 'sans-serif'],
         'NewYork' : ['NewYork', 'serif']
+      },
+
+      keyframes: {
+        popUp: {
+          '0%': { transform: 'translateY(0px)' },
+          '85%': { transform: 'translateY(-40px)' },
+          '100%': { transform: 'translateY(-40px)' },
+        }
+      },
+      animation: {
+        popUp: 'popUp 1s ease-in-out',
       }
+
     },
   },
   plugins: [],
