@@ -24,11 +24,13 @@ code {
 ::-webkit-scrollbar {
   width: 3px;
   height: 3px;
-  background: none;
+  -webkit-border-radius: 1ex;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background:rgba(29, 47, 57, 0.75);
+  -webkit-border-radius: 1ex;
 }
 
 /*::-webkit-scrollbar {
