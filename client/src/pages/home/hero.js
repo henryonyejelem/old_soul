@@ -11,7 +11,7 @@ function Hero() {
   return (
     <div className="hero h-[100vh]">
       <div 
-      className="hero-inner absolute min-md:top-[50%] min-md:translate-y-[-30%] left-[15%] md:left-[50%] md:translate-x-[-50%] bottom-[5vh]">
+      className="hero-inner absolute min-md:top-[50%] min-md:translate-y-[-35%] left-[15%] md:left-[50%] md:translate-x-[-50%] bottom-[5vh]">
         <div className='text-6xl text-primary-100 font-extrabold leading-3xl md:text-white md:text-6xl sm:text-[55px] xs:text-[55px] 2xs:text-[43px] sm:leading-[50px]'>
           <div className='overflow-hidden'>
             <motion.p initial={{ y: y_val }} whileInView={{ y: 0 }} viewport={{ once: true }} transition={{ ease: "easeOut", duration: 1, type: 'spring'}}>WHERE STYLE</motion.p>
