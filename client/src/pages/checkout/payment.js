@@ -89,9 +89,9 @@ function Payment(props) {
 
         <button className="bg-black text-white font-medium py-2 text-[15px] w-[100%] my-[24px]" onClick={handleClick}>Next</button>
 
-        <div className="text-[15px] flex gap- font-semibold">
-            <div>{'<'}</div>
-            <div>continue shopping</div>
+        <div className="text-[15px] flex gap-1 font-semibold">
+            <div>{'<<<'}</div>
+            <div>shipping information</div>
         </div>
 
     </div>
