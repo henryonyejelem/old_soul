@@ -35,7 +35,7 @@ function Information(props) {
 
         <div className="text-[15px] flex gap-1 font-semibold">
             <div>{'<<<'}</div>
-            <div >Continue shopping</div>
+            <div >continue shopping</div>
         </div>
     </div>
   )

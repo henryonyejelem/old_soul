@@ -27,7 +27,7 @@ function Review() {
 
             <div className="text-[15px] flex gap-1 font-semibold pb-[70px] md:mt-[24px]">
                 <div>{'<<<'}</div>
-                <div>Billing information</div>
+                <div>billing information</div>
             </div>
 
         </div>

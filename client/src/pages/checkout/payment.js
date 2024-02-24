@@ -91,7 +91,7 @@ function Payment(props) {
 
         <div className="text-[15px] flex gap-1 font-semibold">
             <div>{'<<<'}</div>
-            <div>Shipping information</div>
+            <div>shipping information</div>
         </div>
 
     </div>
